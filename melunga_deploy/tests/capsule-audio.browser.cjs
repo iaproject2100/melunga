@@ -64,19 +64,19 @@ test('all published study languages, three course ambiences and both layouts sha
    for(let theme=0;theme<3;theme++){
     const ambience=await p.locator('body').getAttribute('data-ambience');ambiences.add(ambience);
     for(const rate of [1,.75])for(const control of ['mgListen','mgEar']){
-     const result=await p.evaluate(({rate,control})=>{
+     const result=await p.evaluate(async ({rate,control})=>{
       const row=document.getElementById('mgPhonrow'),phon=document.getElementById('mgPhon');
       const box=n=>{const r=n.getBoundingClientRect();return [r.x,r.y,r.width,r.height];};
       const geometry=[box(row),box(phon)],textOpacity=getComputedStyle(phon).opacity,ink=getComputedStyle(phon).color;
       const speed=document.getElementById('mgSpeed');speed.value=String(rate);speed.dispatchEvent(new Event('change',{bubbles:true}));
-      document.getElementById(control).click();const audio=__capsuleMedia.instances.at(-1);
+      document.getElementById(control).click();const loadingDark=!row.classList.contains('is-audio-playing')&&!document.getElementById('mgListen').classList.contains('is-playing');await Promise.resolve();const audio=__capsuleMedia.instances.at(-1);
       const lit=row.classList.contains('is-audio-playing'),sameButton=document.getElementById('mgListen').classList.contains('is-playing');
       const style=getComputedStyle(row,'::after'),playingInk=getComputedStyle(phon).color;
       const playingGeometry=[box(row),box(phon)],buttonGreen=getComputedStyle(document.getElementById('mgListen')).backgroundColor;
       audio.onpause();const paused=!row.classList.contains('is-audio-playing');audio.onplaying();const resumed=row.classList.contains('is-audio-playing');audio.onended();
-      return{lit,sameButton,paused,resumed,ended:!row.classList.contains('is-audio-playing'),geometry,playingGeometry,textOpacity,playingOpacity:getComputedStyle(phon).opacity,ink,playingInk,bg:style.backgroundColor,buttonGreen};
+      return{loadingDark,lit,sameButton,paused,resumed,ended:!row.classList.contains('is-audio-playing'),geometry,playingGeometry,textOpacity,playingOpacity:getComputedStyle(phon).opacity,ink,playingInk,bg:style.backgroundColor,buttonGreen};
      },{rate,control});
-     assert(result.lit&&result.sameButton&&result.paused&&result.resumed&&result.ended,pair+' '+ambience+' '+control);
+     assert(result.loadingDark&&result.lit&&result.sameButton&&result.paused&&result.resumed&&result.ended,pair+' '+ambience+' '+control);
      assert.deepEqual(result.playingGeometry,result.geometry,'capsule and text geometry unchanged');assert.equal(result.textOpacity,'1');assert.equal(result.playingOpacity,'1');assert.equal(result.playingInk,result.ink);
      assert.match(result.bg,/0\.22/);assert.equal(result.buttonGreen,'rgb(45, 125, 84)',JSON.stringify({width,pair,ambience,control,rate,result}));plays++;
     }
@@ -113,7 +113,7 @@ test('all classic ambience presets and available study decks support speaker, ea
  for(const width of [390,1366]){
   const f=await fixture({width});try{
    const p=f.page;await p.goto(ORIGIN+'/app.html?classic=1');await p.waitForFunction(()=>typeof window.playCurrent==='function'&&window.MelungaVoiceSelection?.state().status==='ready');
-   const result=await p.evaluate(()=>{
+   const result=await p.evaluate(async ()=>{
     document.querySelectorAll('.wlc-overlay,#welcome').forEach(n=>n.style.display='none');const source=Object.keys(DECKS),presets=[],failures=[];let cells=0;
     const row=document.getElementById('phon').closest('.phonrow');const visited=new Set();for(let i=0;i<40;i++){window.cycleAmb();const key=localStorage.getItem('ox_ambidx');if(visited.has(key))break;visited.add(key);presets.push(key);}if(row.getBoundingClientRect().width===0||row.getBoundingClientRect().height===0)failures.push('classic capsule must be visible');
     for(const preset of presets){window.cycleAmb();for(const study of source){
@@ -124,7 +124,8 @@ test('all classic ambience presets and available study decks support speaker, ea
       if(trigger==='listen')document.getElementById('listen').click();
       else if(trigger==='ear')row.querySelector('.earicon').click();
       else document.getElementById(trigger==='normal'?'sN':'sS').click();
-      const audio=__capsuleMedia.instances.at(-1);
+      const loadingDark=!row.classList.contains('is-audio-playing');await Promise.resolve();const audio=__capsuleMedia.instances.at(-1);
+      if(!loadingDark)failures.push(study+' '+trigger+' lit before start');
       if(!row.classList.contains('is-audio-playing'))failures.push(study+' '+trigger+' not lit');
       if(JSON.stringify(before)!==JSON.stringify(rect()))failures.push(study+' '+trigger+' moved');
       if(getComputedStyle(document.getElementById('phon')).opacity!=='1')failures.push(study+' text opacity changed');

@@ -1,5 +1,7 @@
 # Capsule phonétique pendant la lecture
 
+**Décision Kartech : seule la capsule entière est retenue.** [Validation finale et déclenchement au début réel du son](validation-finale/README.md). Aucun défilement syllabique intégré.
+
 Livraison 1, base `17ca814`. Le signal `onPlaying` existant pilote le bouton et la capsule, dans le parcours et la carte classique. Fond vert à 22 %, liseré fin, lettres opaques, fondu de 150 ms. Pas de minuteur de durée ; les événements audio / synthèse gèrent la fin, la pause, la reprise, l’erreur et l’arrêt. Changer de carte arrête et éteint la capsule. Le calque ne participe pas à la mise en page.
 
 ## Vérifications

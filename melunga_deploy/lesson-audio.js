@@ -82,6 +82,7 @@
     function browserFallback(request) {
       if (!isCurrent(request) || request.usedFallback) return;
       request.usedFallback = true;
+      onPlaying(false);
       releaseAudio(request);
       const synthesis = window.speechSynthesis;
       let available = [];
@@ -156,7 +157,7 @@
       current = request;
       if (candidate) onVoice(Object.freeze({name: candidate.name, engine: candidate.engine, provisional,
         rateMode: candidate.rateMode, serverRate: clientRate ? 1 : rate, playbackRate: clientRate ? rate : 1}));
-      onPlaying(true);
+      // Only media playing / speech start events may light the shared controls.
       if (browserOnly || typeof window.Audio !== 'function') {
         browserFallback(request);
         return true;
@@ -167,6 +168,7 @@
         const active = () => isCurrent(request) && request.audio === audio;
         const waitForAudio = () => {
           if (!active()) return;
+          onPlaying(false);
           clearTimer(request);
           request.timer = setTimeout(() => { if (active()) browserFallback(request); }, 10000);
         };

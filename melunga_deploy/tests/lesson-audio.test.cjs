@@ -67,7 +67,7 @@ test('real audio pause/resume, completion and stale events share the playback si
  f.expire();assert(f.playing,'a long started recording has no artificial end time');
  audio.onpause();assert.equal(f.playing,false);audio.onplaying();assert(f.playing);
  f.player.stop();assert.equal(f.playing,false);assert.equal(audio.onpause,null);
- f.player.play({text:'Merci.',language:'fr',rate:.75});ended();assert(f.playing,'stale completion cannot clear the next recording');
+ f.player.play({text:'Merci.',language:'fr',rate:.75});f.last().onplaying();ended();assert(f.playing,'stale completion cannot clear the next recording');
  f.last().onended();assert.equal(f.playing,false);
 });
 
@@ -116,8 +116,8 @@ test('all eight server voices preserve whole study text and apply each speed onc
     assert.equal(url.pathname, '/.netlify/functions/tts');
     assert.deepEqual(Object.fromEntries(url.searchParams), { voice: name, lang: locale, rate: String(rate), text });
     assert.equal(audio.playbackRate, 1);
-    assert.equal(f.playing, true);
-    audio.onplaying(); assert.equal(f.timers.size, 0);
+    assert.equal(f.playing, false, 'loading is not playback');
+    audio.onplaying(); assert.equal(f.playing,true); assert.equal(f.timers.size, 0);
     audio.onended(); assert.equal(f.playing, false); assert.equal(f.unavailable, 0);
     assert.deepEqual(f.speech, []);
   }
@@ -144,7 +144,7 @@ test('fallback explicitly selects a compatible studied-language voice, never the
   f.player.play({ text: '¿Cuánto cuesta?', language: 'es', rate: 0.75 }); f.last().onerror();
   assert.equal(f.speech.length, 1); const utterance = f.speech[0];
   assert.equal(utterance.voice, preferred); assert.equal(utterance.lang, 'es-ES'); assert.equal(utterance.rate, 0.75);
-  assert.equal(utterance.text, '¿Cuánto cuesta?'); assert.equal(f.playing, true);
+  assert.equal(utterance.text, '¿Cuánto cuesta?'); assert.equal(f.playing, false, 'queued speech has not started');
   utterance.onstart(); assert.equal(f.timers.size, 0);
   utterance.onend(); assert.equal(f.playing, false); assert.equal(f.unavailable, 0);
 });
@@ -186,7 +186,7 @@ test('late server errors, endings and rejected play promises cannot disturb a ne
   const f = fixture({ voices: [voice('es-ES')] }), pending = deferred(); f.nextPlay = pending.promise;
   f.player.play({ text: 'Anterior.', language: 'es' });
   const old = f.last(), lateError = old.onerror, lateEnd = old.onended, latePlaying = old.onplaying;
-  f.nextPlay = null; f.player.play({ text: 'Nueva.', language: 'es' }); const latest = f.last();
+  f.nextPlay = null; f.player.play({ text: 'Nueva.', language: 'es' }); const latest = f.last();latest.onplaying();
   lateError(); lateEnd(); latePlaying(); pending.reject(new Error('old request aborted'));
   await Promise.resolve(); await Promise.resolve();
   assert.equal(f.last(), latest); assert.equal(f.playing, true); assert.equal(f.speech.length, 0); assert.equal(f.unavailable, 0);
@@ -205,19 +205,19 @@ test('stop cancels pending media and fallback, and stale callbacks cannot report
 
 test('retry is a fresh server attempt after errors and never remembers a failed voice permanently', () => {
   const f = fixture(); f.player.play({ text: 'Réessai.', language: 'es' }); f.last().onerror(); assert.equal(f.unavailable, 1);
-  f.player.play({ text: 'Réessai.', language: 'es' }); assert.equal(f.audio.length, 2); assert.equal(f.playing, true);
+  f.player.play({ text: 'Réessai.', language: 'es' }); assert.equal(f.audio.length, 2); assert.equal(f.playing, false);
   f.last().onplaying(); f.last().onended(); assert.equal(f.playing, false); assert.equal(f.unavailable, 1);
 });
 
 test('stalled media times out to a safe fallback, and an unstarted fallback also times out without a default voice', () => {
   const f = fixture({ voices: [voice('es-ES')] }); f.player.play({ text: 'Espera.', language: 'es' });
-  f.last().onplaying(); f.last().onstalled(); f.expire(); assert.equal(f.speech.length, 1); assert.equal(f.playing, true);
+  f.last().onplaying(); f.last().onstalled(); f.expire(); assert.equal(f.speech.length, 1); assert.equal(f.playing, false, 'unstarted fallback is dark');
   f.expire(); assert.equal(f.unavailable, 1); assert.equal(f.playing, false); assert.equal(f.canceled, 1);
 });
 
 test('server callbacks saved before fallback cannot finish the active system utterance', () => {
   const f = fixture({ voices: [voice('es-ES')] }); f.player.play({ text: 'Gracias.', language: 'es' });
-  const audio = f.last(), end = audio.onended, playing = audio.onplaying; audio.onerror();
+  const audio = f.last(), end = audio.onended, playing = audio.onplaying; audio.onerror();f.speech[0].onstart();
   end(); playing(); assert.equal(f.playing, true); assert.equal(f.speech.length, 1);
   f.speech[0].onend(); assert.equal(f.playing, false);
 });
@@ -284,7 +284,7 @@ test('a failed catalogue permits only an explicit matching browser voice, withou
 test('catalogue retry completion neither interrupts local fallback nor starts a delayed server playback',async()=>{
   const options={preview:true,catalogueFails:true,voices:[voice('es-ES')]},f=fixture(options);await assert.rejects(f.ready);
   options.catalogueFails=false;assert.equal(f.player.play({text:'Una frase.',language:'es'}),true);
-  const utterance=f.speech[0];await f.selection.ready();
+  const utterance=f.speech[0];utterance.onstart();await f.selection.ready();
   assert.equal(f.audio.length,0);assert.equal(f.speech.length,1);assert.equal(f.playing,true);
   utterance.onend();assert.equal(f.playing,false);
   assert.equal(f.player.play({text:'Otra frase.',language:'es'}),true);assert.equal(f.audio.length,1);
@@ -295,7 +295,7 @@ test('an expired catalogue uses only matching browser speech while its refresh r
   const f=fixture({preview:true,voices:[voice('fr-FR'),voice('es-ES')]});await f.ready;
   f.now=Date.parse(f.selection.getSnapshot('es').sourceMetadata.expiresAt)+1;
   assert.equal(f.selection.state().status,'expired');assert.equal(f.player.play({text:'Una frase.',language:'es'}),true);
-  assert.equal(f.audio.length,0);assert.equal(f.speech.length,1);assert.equal(f.speech[0].lang,'es-ES');
+  assert.equal(f.audio.length,0);assert.equal(f.speech.length,1);assert.equal(f.speech[0].lang,'es-ES');f.speech[0].onstart();
   await assert.rejects(f.selection.ready());assert.equal(f.speech.length,1);assert.equal(f.playing,true);f.player.stop();
 });
 
@@ -330,7 +330,7 @@ test('a changed local favourite cancels current Chirp and stale callbacks cannot
   const audio=f.last(),lateError=audio.onerror,lateEnd=audio.onended;
   assert.equal(f.selection.setVoice('es',f.selection.getChoices('es')[3].name),true);
   assert.equal(audio.src,'');assert.equal(f.playing,false);f.nextPlay=null;
-  f.player.play({text:'Nueva.',language:'es'});const latest=f.last();
+  f.player.play({text:'Nueva.',language:'es'});const latest=f.last();latest.onplaying();
   lateError();lateEnd();pending.reject(new Error('Old play aborted'));await Promise.resolve();await Promise.resolve();
   assert.equal(f.last(),latest);assert.equal(f.playing,true);assert.equal(f.speech.length,0);assert.equal(f.unavailable,0);
   f.player.destroy();assert.equal(latest.src,'');assert.equal(f.timers.size,0);
@@ -394,7 +394,22 @@ test('Indonesian keeps both WaveNet genders and uses only a compatible browser f
   assert.equal(f.selection.setVoice('id','id-ID-Wavenet-'+suffix),true);
   assert.equal(f.player.play({text:'Bisa bantu saya?',language:'id',rate}),true);
   const url=new URL(f.last().src,'https://fixture.test');assert.equal(url.searchParams.get('voice'),'id-ID-Wavenet-'+suffix);assert.equal(url.searchParams.get('lang'),'id-ID');assert.equal(url.searchParams.get('rate'),String(rate));
-  f.last().onerror();assert.equal(f.speech.at(-1).lang,'id-ID');assert.equal(f.speech.at(-1).rate,rate);assert.equal(f.speech.at(-1).text,'Bisa bantu saya?');assert.equal(f.playing,true);f.speech.at(-1).onend();assert.equal(f.playing,false);
+  f.last().onerror();f.speech.at(-1).onstart();assert.equal(f.speech.at(-1).lang,'id-ID');assert.equal(f.speech.at(-1).rate,rate);assert.equal(f.speech.at(-1).text,'Bisa bantu saya?');assert.equal(f.playing,true);f.speech.at(-1).onend();assert.equal(f.playing,false);
  }
  const f=fixture({preview:true,voices:[voice('fr-FR')]});await f.ready;f.player.play({text:'Halo.',language:'id'});f.last().onerror();assert.equal(f.speech.length,0);assert.equal(f.unavailable,1);
+});
+
+
+test('all thirteen languages stay dark while media/speech loads and light only on actual playback at either speed',async()=>{
+ const locales={fr:'fr-FR',en:'en-US',es:'es-ES',it:'it-IT',zh:'cmn-CN',ja:'ja-JP',ko:'ko-KR',de:'de-DE',ru:'ru-RU',pt:'pt-BR',ar:'ar-SA',hi:'hi-IN',id:'id-ID'};
+ for(const [language,locale] of Object.entries(locales))for(const rate of [1,.75]){
+  const f=fixture({voices:[voice(locale)]});
+  assert(f.player.play({text:'Phrase entière.',language,rate}));const a=f.last();
+  assert.equal(f.playing,false,'request is still loading');await Promise.resolve();assert.equal(f.playing,false,'play promise resolution is not a playing event');
+  a.onplaying();assert.equal(f.playing,true);assert.equal(f.timers.size,0);f.expire();assert.equal(f.playing,true,'no artificial audio end timer');
+  a.onwaiting();assert.equal(f.playing,false);a.onplaying();assert.equal(f.playing,true);
+  a.onerror();assert.equal(f.playing,false,'fallback is queued');const u=f.speech.at(-1);u.onstart();assert.equal(f.playing,true);assert.equal(f.timers.size,0);f.expire();assert.equal(f.playing,true);
+  u.onpause();assert.equal(f.playing,false);u.onresume();assert.equal(f.playing,true);u.onend();assert.equal(f.playing,false);
+  f.player.play({text:'Changement.',language,rate});const late=f.last().onplaying;f.player.stop();late();assert.equal(f.playing,false,'late start after navigation stays dark');
+ }
 });

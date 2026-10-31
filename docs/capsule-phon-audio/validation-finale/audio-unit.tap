@@ -1,0 +1,41 @@
+✔ real audio pause/resume, completion and stale events share the playback signal without a duration timer (3.412908ms)
+✔ browser speech pause/resume/end and interruption also clear the shared playback signal (1.078342ms)
+✔ Hindi and Russian play configured voices before the eight-language Chirp catalogue is ready, with speaker gender markers (14.263758ms)
+✔ American English fallback never selects a British or default French voice (4.203156ms)
+✔ all eight server voices preserve whole study text and apply each speed once, without needing a browser voice (35.220077ms)
+✔ male selection uses the existing male WaveNet endpoint IDs in every language (12.421799ms)
+✔ an empty voice list or French-only Android list cannot read Spanish after a media failure (5.87261ms)
+✔ fallback explicitly selects a compatible studied-language voice, never the first French voice (1.710194ms)
+✔ Mandarin cmn voices are compatible with Chinese, and a differently declared language is rejected (2.977456ms)
+✔ Mandarin fallback excludes Hong Kong, Macao and explicitly Cantonese voices, while accepting known Mandarin locales (12.006025ms)
+✔ a NotAllowedError rejects server playback safely, with a compatible fallback or an explicit unavailable result (5.264123ms)
+✔ late server errors, endings and rejected play promises cannot disturb a newer click or start old speech (1.433136ms)
+✔ stop cancels pending media and fallback, and stale callbacks cannot report an error after navigation (3.380701ms)
+✔ retry is a fresh server attempt after errors and never remembers a failed voice permanently (1.051342ms)
+✔ stalled media times out to a safe fallback, and an unstarted fallback also times out without a default voice (1.478893ms)
+✔ server callbacks saved before fallback cannot finish the active system utterance (1.034677ms)
+✔ unsupported language, self-invented voice and invalid rate cannot choose a different server voice (3.709287ms)
+✔ preloaded Chirp preview plays synchronously at natural server speed and applies each classic or modern speed exactly once on media (64.630147ms)
+✔ explicit WaveNet favourites retain server speed, while candidate trials do not save a new favourite (2.438019ms)
+✔ a loading preview catalogue never falls through to old WaveNet or delayed speech after the gesture (2.055044ms)
+✔ a failed catalogue permits only an explicit matching browser voice, without a server candidate or French default (7.459573ms)
+✔ catalogue retry completion neither interrupts local fallback nor starts a delayed server playback (3.494059ms)
+✔ an expired catalogue uses only matching browser speech while its refresh remains a later-gesture operation (3.109691ms)
+✔ explicit male selection uses the actual masculine catalogue candidate in each of eight languages (23.385765ms)
+✔ Chirp failures permit only the studied browser language, and reject French defaults or Cantonese for Mandarin (10.562003ms)
+✔ a changed local favourite cancels current Chirp and stale callbacks cannot speak or stop its replacement (2.317852ms)
+✔ an unavailable approved default cannot silently play the first listed Chirp or a local voice instead (13.035725ms)
+✔ German fallback prefers de-DE, accepts another German locale, and refuses every foreign or absent voice (10.171046ms)
+✔ native recognition uses de-DE while preserving the seven existing language mappings (1.809982ms)
+✔ Portuguese uses Brazilian voices and gender markers; Portugal is never a browser fallback (15.638818ms)
+✔ Arabic fallback speaks only with an Arabic browser voice and uses a recognition-compatible locale (4.846475ms)
+✔ Indonesian keeps both WaveNet genders and uses only a compatible browser fallback at either speed (10.755243ms)
+✔ all thirteen languages stay dark while media/speech loads and light only on actual playback at either speed (26.796065ms)
+ℹ tests 33
+ℹ suites 0
+ℹ pass 33
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 399.159368
