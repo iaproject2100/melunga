@@ -249,5 +249,5 @@ body[data-view="sequences"]:has(#mgSequenceView.mg-has-visible-sequences) .mg-pr
   .mg-has-visible-sequences .mg-sequence{padding:12px 10px}
 }
 
-/* Use the listening green for the shared active audio state in every ambience. */
-body.mg-desktop-course #mgFooter>#mgListen.is-playing{background:var(--ok,#2d7d54);color:#fff}
+/* Match both active audio controls to the translucent capsule on every palette. */
+body.mg-desktop-course #mgFooter>#mgListen.is-playing,body.mg-desktop-course #mgEar.is-playing{background:var(--mg-audio-colour);color:var(--mg-audio-ink);outline-color:var(--mg-audio-colour)}

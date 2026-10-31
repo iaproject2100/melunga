@@ -1,0 +1,46 @@
+✔ current German release passes before the old edition is made available (6000.782653ms)
+✔ every actual changed or added product/source is checked before any projection (9618.161742ms)
+✔ historical data, layouts, rights, original banks and evidence cannot change silently (430.275804ms)
+✔ a caller cannot submit changed bytes and get a valid before-German source (2.924071ms)
+✔ additional runtime assets are rejected by the exact product inventory (3.495924ms)
+✔ real audio pause/resume, completion and stale events share the playback signal without a duration timer (4.487796ms)
+✔ browser speech pause/resume/end and interruption also clear the shared playback signal (1.515083ms)
+✔ Hindi and Russian play configured voices before the eight-language Chirp catalogue is ready, with speaker gender markers (14.367086ms)
+✔ American English fallback never selects a British or default French voice (3.562502ms)
+✔ all eight server voices preserve whole study text and apply each speed once, without needing a browser voice (35.570292ms)
+✔ male selection uses the existing male WaveNet endpoint IDs in every language (8.473731ms)
+✔ an empty voice list or French-only Android list cannot read Spanish after a media failure (4.589095ms)
+✔ fallback explicitly selects a compatible studied-language voice, never the first French voice (1.264824ms)
+✔ Mandarin cmn voices are compatible with Chinese, and a differently declared language is rejected (3.01236ms)
+✔ Mandarin fallback excludes Hong Kong, Macao and explicitly Cantonese voices, while accepting known Mandarin locales (9.554444ms)
+✔ a NotAllowedError rejects server playback safely, with a compatible fallback or an explicit unavailable result (3.010798ms)
+✔ late server errors, endings and rejected play promises cannot disturb a newer click or start old speech (5.493969ms)
+✔ stop cancels pending media and fallback, and stale callbacks cannot report an error after navigation (1.673416ms)
+✔ retry is a fresh server attempt after errors and never remembers a failed voice permanently (1.113001ms)
+✔ stalled media times out to a safe fallback, and an unstarted fallback also times out without a default voice (1.510857ms)
+✔ server callbacks saved before fallback cannot finish the active system utterance (0.761232ms)
+✔ unsupported language, self-invented voice and invalid rate cannot choose a different server voice (1.908283ms)
+✔ preloaded Chirp preview plays synchronously at natural server speed and applies each classic or modern speed exactly once on media (64.921155ms)
+✔ explicit WaveNet favourites retain server speed, while candidate trials do not save a new favourite (3.953628ms)
+✔ a loading preview catalogue never falls through to old WaveNet or delayed speech after the gesture (4.995553ms)
+✔ a failed catalogue permits only an explicit matching browser voice, without a server candidate or French default (8.862563ms)
+✔ catalogue retry completion neither interrupts local fallback nor starts a delayed server playback (4.027336ms)
+✔ an expired catalogue uses only matching browser speech while its refresh remains a later-gesture operation (4.376051ms)
+✔ explicit male selection uses the actual masculine catalogue candidate in each of eight languages (26.17993ms)
+✔ Chirp failures permit only the studied browser language, and reject French defaults or Cantonese for Mandarin (12.177249ms)
+✔ a changed local favourite cancels current Chirp and stale callbacks cannot speak or stop its replacement (3.113469ms)
+✔ an unavailable approved default cannot silently play the first listed Chirp or a local voice instead (18.879289ms)
+✔ German fallback prefers de-DE, accepts another German locale, and refuses every foreign or absent voice (15.449393ms)
+✔ native recognition uses de-DE while preserving the seven existing language mappings (4.204888ms)
+✔ Portuguese uses Brazilian voices and gender markers; Portugal is never a browser fallback (26.309716ms)
+✔ Arabic fallback speaks only with an Arabic browser voice and uses a recognition-compatible locale (10.580161ms)
+✔ Indonesian keeps both WaveNet genders and uses only a compatible browser fallback at either speed (13.67033ms)
+✔ all thirteen languages stay dark while media/speech loads and light only on actual playback at either speed (40.671035ms)
+ℹ tests 38
+ℹ suites 0
+ℹ pass 38
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 16187.203739

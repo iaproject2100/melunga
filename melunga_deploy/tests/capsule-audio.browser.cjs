@@ -9,6 +9,9 @@ const raw=file=>fs.readFileSync(path.join(WEB,file)),json=file=>JSON.parse(raw(f
 const historical=new Map();function old(file){if(!historical.has(file))historical.set(file,execFileSync('git',['show',BASE+':melunga_deploy/'+file],{cwd:ROOT,maxBuffer:50*1024*1024}));return historical.get(file);}
 const nativeManifest=json('content/native-catalogue/manifest.json'),meanings=json(nativeManifest.germanNativeMeanings.path),dictionary=json('content/course-locales/de.json');
 const banks=Object.fromEntries(nativeManifest.studyLanguageIds.map(code=>[code,json('content/native-catalogue/'+code+'.json')]));
+const ambienceMatch=/const ambiences = (\[[\s\S]*?\]);/.exec(raw('maquette-guidee.js').toString());
+const AMBIENCES=JSON.parse(ambienceMatch[1].replace(/'/g,'\"'));
+const LIGHT_AMBIENCES=new Set(['dusk','legacy-gamified','legacy-zen','legacy-plum','legacy-cafe']);
 const nativeLocaleCodes=['ru','pt','ar','hi'];
 const nativeInput=JSON.parse(fs.readFileSync(path.join(ROOT,'tools/maquette-guidee/imports/native-meanings-ru-pt-ar-hi-v1.json')));
 const nativeCopy=JSON.parse(fs.readFileSync(path.join(ROOT,'tools/maquette-guidee/imports/native-interface-copy-v1.json'))).locales;
@@ -54,14 +57,14 @@ async function known(p,pair){return p.evaluate(pair=>JSON.parse(localStorage.get
 async function reviews(p){return p.evaluate(()=>JSON.parse(localStorage.getItem('melunga-guided-review-v1')||'{}').entries||[]);}
 async function capture(p,name){if(process.env.GERMAN_NATIVE_DEBUG)console.log('capture before',name,p.url());await p.waitForTimeout(300);await p.evaluate(()=>document.activeElement?.blur());await p.mouse.move(0,0);await p.evaluate(()=>document.fonts.ready);await p.locator('img').evaluateAll(nodes=>Promise.all(nodes.filter(n=>{const r=n.getBoundingClientRect();return r.width&&r.height&&r.bottom>0&&r.top<innerHeight&&getComputedStyle(n).visibility!=='hidden';}).map(n=>n.decode().catch(()=>{}))));await settle(p);const file=path.join(OUT,name+'.png');await p.screenshot({path:file,animations:'disabled'});report.screenshots.push(file);if(process.env.GERMAN_NATIVE_DEBUG)console.log('capture after',name);return fs.readFileSync(file);}
 
-test('all published study languages, three course ambiences and both layouts share one event-driven capsule without moving text',{timeout:180000},()=>checked('twelve-languages-three-ambiences-two-layouts',async()=>{
+test('all published study languages, all seventeen course ambiences and both layouts share one event-driven capsule without moving text',{timeout:240000},()=>checked('all-languages-all-colours-two-layouts',async()=>{
  let cells=0,plays=0;
  for(const width of [390,1366])for(const study of nativeManifest.studyLanguageIds){
   const pair=(study==='fr'?'zh':'fr')+'-'+study,f=await fixture({width,pair});try{
    const p=f.page;await goCourse(f,pair,1,true);
    const knownBefore=await p.evaluate(()=>localStorage.getItem('melunga-guided-known-v1'));
    const ambiences=new Set();
-   for(let theme=0;theme<3;theme++){
+   for(let theme=0;theme<AMBIENCES.length;theme++){
     const ambience=await p.locator('body').getAttribute('data-ambience');ambiences.add(ambience);
     for(const rate of [1,.75])for(const control of ['mgListen','mgEar']){
      const result=await p.evaluate(async ({rate,control})=>{
@@ -72,20 +75,26 @@ test('all published study languages, three course ambiences and both layouts sha
       document.getElementById(control).click();const loadingDark=!row.classList.contains('is-audio-playing')&&!document.getElementById('mgListen').classList.contains('is-playing');await Promise.resolve();const audio=__capsuleMedia.instances.at(-1);
       const lit=row.classList.contains('is-audio-playing'),sameButton=document.getElementById('mgListen').classList.contains('is-playing');
       const style=getComputedStyle(row,'::after'),playingInk=getComputedStyle(phon).color;
-      const playingGeometry=[box(row),box(phon)],buttonGreen=getComputedStyle(document.getElementById('mgListen')).backgroundColor;
+      const playingGeometry=[box(row),box(phon)],buttonGreen=getComputedStyle(document.getElementById('mgListen')).backgroundColor,earGreen=getComputedStyle(document.getElementById('mgEar')).backgroundColor,buttonInk=getComputedStyle(document.getElementById('mgListen')).color;
       audio.onpause();const paused=!row.classList.contains('is-audio-playing');audio.onplaying();const resumed=row.classList.contains('is-audio-playing');audio.onended();
-      return{loadingDark,lit,sameButton,paused,resumed,ended:!row.classList.contains('is-audio-playing'),geometry,playingGeometry,textOpacity,playingOpacity:getComputedStyle(phon).opacity,ink,playingInk,bg:style.backgroundColor,buttonGreen};
+      return{loadingDark,lit,sameButton,paused,resumed,ended:!row.classList.contains('is-audio-playing'),geometry,playingGeometry,textOpacity,playingOpacity:getComputedStyle(phon).opacity,ink,playingInk,bg:style.backgroundColor,buttonGreen,earGreen,buttonInk};
      },{rate,control});
      assert(result.loadingDark&&result.lit&&result.sameButton&&result.paused&&result.resumed&&result.ended,pair+' '+ambience+' '+control);
      assert.deepEqual(result.playingGeometry,result.geometry,'capsule and text geometry unchanged');assert.equal(result.textOpacity,'1');assert.equal(result.playingOpacity,'1');assert.equal(result.playingInk,result.ink);
-     assert.match(result.bg,/0\.22/);assert.equal(result.buttonGreen,'rgb(45, 125, 84)',JSON.stringify({width,pair,ambience,control,rate,result}));plays++;
+     const rgb=LIGHT_AMBIENCES.has(ambience)?[45,125,84]:[74,222,128];assert.equal(result.bg,'rgba('+rgb.join(', ')+', 0.22)');assert.equal(result.buttonGreen,'rgb('+rgb.join(', ')+')');assert.equal(result.earGreen,result.buttonGreen,'ear and speaker share the playback colour');plays++;
+    }
+    if(study==='de'){
+     await p.locator('#mgListen').click();
+     await p.locator('#mgPhonrow').screenshot({path:path.join(OUT,'capsule-'+ambience+'-'+width+'.png'),animations:'disabled'});
+     if(['legacy-gamified','legacy-neon','legacy-premium','legacy-plum','legacy-ocean'].includes(ambience))await capture(p,'active-'+ambience+'-'+width);
+     await p.evaluate(()=>__capsuleMedia.instances.at(-1).onended());
     }
     await p.locator('#mgPalette').click();cells++;
    }
-   assert.equal(ambiences.size,3);assert.equal(await p.evaluate(()=>localStorage.getItem('melunga-guided-known-v1')),knownBefore);
+   assert.equal(ambiences.size,AMBIENCES.length);assert.deepEqual([...ambiences],AMBIENCES);assert.equal(await p.evaluate(()=>localStorage.getItem('melunga-guided-known-v1')),knownBefore);
   }finally{await f.close();}
  }
- assert.equal(cells,nativeManifest.studyLanguageIds.length*6);assert.equal(plays,cells*4);report.cases.push({courseThemeLayoutCells:cells,normalSlowSpeakerEarPlays:plays});
+ assert.equal(cells,nativeManifest.studyLanguageIds.length*AMBIENCES.length*2);assert.equal(plays,cells*4);report.cases.push({courseThemeLayoutCells:cells,normalSlowSpeakerEarPlays:plays});
 }));
 
 test('capsule fades in 150ms, survives long playback and browser-voice fallback, and clears on card changes and stale events',{timeout:60000},()=>checked('fade-fallback-card-change-and-stale-events',async()=>{
