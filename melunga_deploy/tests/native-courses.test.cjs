@@ -20,7 +20,7 @@ const REVIEWED = ['fr-en','fr-es','fr-it','fr-zh','fr-ja','fr-ko','zh-fr'];
 const HISTORICAL_PAIRS = LANGUAGES.flatMap(native => LANGUAGES.filter(study => native !== study).map(study => native+'-'+study));
 const PAIRS = STUDY_LANGUAGES.flatMap(native => STUDY_LANGUAGES.filter(study => native !== study).map(study => native+'-'+study));
 const DERIVED = HISTORICAL_PAIRS.filter(pair => !REVIEWED.includes(pair));
-const CURRENT_PAIRS = STUDY_LANGUAGES.flatMap(native => [...STUDY_LANGUAGES,'hi','ru','pt','ar'].filter(study => native !== study && !(native==='de'&&['hi','ru','pt','ar'].includes(study))).map(study=>native+'-'+study));
+const CURRENT_PAIRS = [...STUDY_LANGUAGES,'ru','pt','ar','hi'].flatMap(native => [...STUDY_LANGUAGES,'hi','ru','pt','ar'].filter(study => native !== study && !(native==='de'&&['hi','ru','pt','ar'].includes(study))).map(study=>native+'-'+study));
 const NATIVE_PAIRS = PAIRS.filter(pair => !REVIEWED.includes(pair));
 const BASE_PAIR = Object.fromEntries(REVIEWED.map(pair => [pair.split('-')[1],pair]));
 const read = file => fs.readFileSync(path.join(WEB,file));
@@ -179,15 +179,15 @@ test('classic source functions, both literals, all 78 reviewed documents and his
   assert.equal(hash(read('content/course-access.json')),hash(historic('content/course-access.json')),'seven historical rights unchanged');
 });
 
-test('native domain has 56 target pairs and preserves the historical 42 directions',()=>{
+test('native domain has 128 pairs and preserves the historical 56 target pairs and 42 original directions',()=>{
   const {api}=fixture();
-  assert.deepEqual(plain(api.pairIds),CURRENT_PAIRS);assert.equal(CURRENT_PAIRS.length,84);assert.deepEqual(plain(api.reviewedPairIds),REVIEWED);
+  assert.deepEqual(plain(api.pairIds),CURRENT_PAIRS);assert.equal(CURRENT_PAIRS.length,128);assert.deepEqual(plain(api.reviewedPairIds),REVIEWED);
   assert.equal(PAIRS.length,56);assert.equal(HISTORICAL_PAIRS.length,42);assert.equal(DERIVED.length,35);
   assert.deepEqual(plain(api.pairIds).filter(pair=>PAIRS.includes(pair)&&!pair.endsWith('-de')&&!pair.startsWith('de-')),HISTORICAL_PAIRS);
   for(const native of LANGUAGES)assert.equal(api.isPair(native+'-'+native),false,'native cannot equal study');
-  for(const pair of ['ar-fr','ar-en','de-de','xx-de','en','xx-zh','FR-en','en-en','en-fr-extra',null])assert.equal(api.isPair(pair),false);
+  for(const pair of ['ar-ar','pt-pt','de-de','xx-de','en','xx-zh','FR-en','en-en','en-fr-extra',null])assert.equal(api.isPair(pair),false);
   for(const pair of PAIRS){assert.equal(api.isPair(pair),true);assert.equal(api.isReviewed(pair),REVIEWED.includes(pair));}
-  const snapshot=JSON.stringify(reviewedManifest),allMetadata=plain(api.metadata(reviewedManifest)),metadata=allMetadata.filter(row=>PAIRS.includes(row.id));assert.equal(allMetadata.length,77);
+  const snapshot=JSON.stringify(reviewedManifest),allMetadata=plain(api.metadata(reviewedManifest)),metadata=allMetadata.filter(row=>PAIRS.includes(row.id));assert.equal(allMetadata.length,121);
   assert.deepEqual(metadata.map(row=>row.id),NATIVE_PAIRS);assert.equal(metadata.length,49);
   assert.deepEqual(metadata.filter(row=>row.studyLanguage!=='de'&&row.nativeLanguage!=='de').map(row=>row.id),DERIVED);
   for(const row of metadata){
@@ -285,7 +285,7 @@ test('35 native source projections preserve whole classic study/meaning/phon blo
 
 test('loader refuses reviewed routes, same-language pairs, invalid levels and pre-aborted requests',async()=>{
   const {api,calls}=fixture();
-  for(const pair of [...REVIEWED,'en-en','ar-fr',null])await assert.rejects(api.loadPair(pair,1));
+  for(const pair of [...REVIEWED,'en-en','ar-ar',null])await assert.rejects(api.loadPair(pair,1));
   for(const level of [0,11,1.5,'1',null])await assert.rejects(api.loadPair('en-fr',level));
   const controller=new AbortController();controller.abort();
   await assert.rejects(api.loadPair('en-fr',1,{signal:controller.signal}),error=>error.name==='AbortError');
@@ -328,7 +328,7 @@ test('all 35 new pairs keep historical free identities and editorial L1 open; pa
     const model=sourcePhraseMap.get(paidSourceId(pairId));
     assert.equal(access.canLearn(pairId,model,model.editorialLevel),false,'nonpaying learner cannot open L2–L10 paid source');
   }
-  for(const pairId of ['en-en','xx-fr','en-xx','ar-fr'])assert.equal(access.canLearn(pairId,{id:'catalogue:fr:0',editorialLevel:1},1),false);
+  for(const pairId of ['en-en','xx-fr','en-xx','ar-ar'])assert.equal(access.canLearn(pairId,{id:'catalogue:fr:0',editorialLevel:1},1),false);
   assert(f.calls.every(call=>!call.path.includes('/login')&&!call.path.includes('/payment')),'all account calls are simulated status reads');
 });
 
@@ -385,7 +385,7 @@ test('login and classic URLs preserve all 56 native/target directions; invalid p
     assert.equal(classicUrl.searchParams.get('start'),'1');assert.equal(classicUrl.searchParams.get('classic'),'1');
     for(const level of [0,11,'invalid',1.5])assert.equal(new URL(access.loginUrl(pairId,level),'https://fixture.example/').searchParams.get('courseLevel'),'1');
   }
-  for(const pairId of [...STUDY_LANGUAGES.map(language=>language+'-'+language),'ar-fr','ar-en','xx-fr',null,'https://example.test']){
+  for(const pairId of [...STUDY_LANGUAGES.map(language=>language+'-'+language),'ar-ar','ru-ru','xx-fr',null,'https://example.test']){
     assert.equal(access.loginUrl(pairId,7),'index.html');assert.equal(access.classicUrl(pairId),'index.html');
   }
   assert.equal(f.calls.length,0,'URL creation never logs in or makes a network call');

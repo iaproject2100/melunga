@@ -1,3 +1,5 @@
+> Mise à jour : les significations ont été livrées. Voir [l’intégration des quatre langues](../integration-langues-application-ru-pt-ar-hi/README.md). Le texte ci-dessous décrit le point de préparation précédent.
+
 # Russe, portugais du Brésil, arabe et hindi comme langues de l’application
 
 État du 30 octobre 2026 : **préparation de l’interface, activation non terminée**. Les quatre langues restent disponibles comme langues à apprendre. Cette branche ne prétend pas que les quatre nouveaux parcours en langue maternelle sont publiés. Les boutons restent en attente des significations vérifiées pour éviter une interface qui ouvre des cours incomplets.

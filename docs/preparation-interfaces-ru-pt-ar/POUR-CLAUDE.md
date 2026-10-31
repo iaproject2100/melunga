@@ -1,3 +1,5 @@
+> Mise à jour : les significations ont été livrées. Voir [l’intégration des quatre langues](../integration-langues-application-ru-pt-ar-hi/README.md). Le texte ci-dessous décrit le point de préparation précédent.
+
 # Compléter les langues de l’application Melunga
 
 Branche de travail : `feat/interface-russe-portugais`. L’intégration des quatre langues n’est pas encore activée.

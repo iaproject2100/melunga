@@ -2725,7 +2725,7 @@ body.immersif.pile-droite .stage {
 <link rel="stylesheet" href="lesson-pastilles.css">
 <link rel="stylesheet" href="account-ui.css">
 <link rel="stylesheet" href="course-login.css?v=1">
-<script src="course-login.js?v=3" defer></script>
+<script src="course-login.js?v=4" defer></script>
 <style>html.course-entry-redirect body{visibility:hidden!important}</style>
 <script>
 /* Web lessons default to the course. Account forms retain only a typed pair
@@ -2853,8 +2853,8 @@ html body .wordmark>.cn,html body .wlc-word>.cn{display:block!important;margin:5
   var bridge=window.Capacitor;
   if(bridge && (typeof bridge.isNativePlatform==='function' ? bridge.isNativePlatform()
       : typeof bridge.getPlatform==='function' && bridge.getPlatform()!=='web')) return;
-  var codes=['fr','en','de','es','it','zh','ja','ko'];
-  var studyCodes=codes.concat(['hi','ru','pt','ar']);
+  var codes=['fr','en','de','es','it','zh','ja','ko','ru','pt','ar','hi'];
+  var studyCodes=codes;
   var nativeLanguage=query.get('lang'), studyLanguage=query.get('study');
   if(codes.indexOf(nativeLanguage)<0 || studyCodes.indexOf(studyLanguage)<0 || nativeLanguage===studyLanguage || nativeLanguage==='de'&&['hi','ru','pt','ar'].indexOf(studyLanguage)>=0) return;
   var pair=nativeLanguage+'-'+studyLanguage;
@@ -3073,7 +3073,7 @@ html body .wordmark>.cn,html body .wlc-word>.cn{display:block!important;margin:5
   </div>
 </div>
 
-<script src="course-i18n.js?v=10"></script>
+<script src="course-i18n.js?v=11"></script>
 <script src="voice-selection.js?v=7"></script>
 <script src="lesson-audio.js?v=8"></script>
 <script>
@@ -3672,8 +3672,8 @@ function courseReturnIsNative(){
 }
 function validateCourseReturn(pair,level,nativeLanguage,studyLanguage){
   if(courseReturnIsNative() || typeof pair!=='string') return null;
-  var codes=['fr','en','de','es','it','zh','ja','ko'];
-  var studyCodes=codes.concat(['hi','ru','pt','ar']);
+  var codes=['fr','en','de','es','it','zh','ja','ko','ru','pt','ar','hi'];
+  var studyCodes=codes;
   var languages=pair.split('-');
   if(languages.length!==2 || codes.indexOf(languages[0])<0 || studyCodes.indexOf(languages[1])<0 || languages[0]===languages[1] || languages[0]==='de'&&['hi','ru','pt','ar'].indexOf(languages[1])>=0) return null;
   if(nativeLanguage!==languages[0] || studyLanguage && studyLanguage!==languages[1]) return null;
@@ -5318,12 +5318,12 @@ function dismissWelcome(){var w=document.getElementById('welcome');if(w){w.class
 </script>
 <script src="store-billing.js"></script>
 <script src="native-speech.js?v=4"></script>
-<script src="german-account-ui.js?v=1"></script>
+<script src="german-account-ui.js?v=2"></script>
 <script src="entry-bridge.js?v=2"></script>
 <script src="desktop-lessons.js"></script>
 <script src="lesson-pickers.js"></script>
 <script src="lesson-controls.js"></script>
 <script src="lesson-pastilles.js"></script>
-<script src="account-ui.js?v=1"></script>
+<script src="account-ui.js?v=2"></script>
 </body>
 </html>

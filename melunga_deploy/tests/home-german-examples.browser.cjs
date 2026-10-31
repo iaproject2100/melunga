@@ -166,7 +166,7 @@ test('mobile welcome keeps bubbles, green example and the existing single-Englis
 
 
 test('language picker shows CSS flags on desktop and mobile with keyboard and focus support',async () => {
-  const order=['en','zh','fr','es','ja','ko','de','it'];
+  const order=['en','zh','ar','hi','ru','fr','es','pt','ja','ko','de','it'];
   for(const width of [1366,390]){
     const f=await fixture('fr',width,900);try{
       const p=f.page,trigger=p.locator(width>=960?'.dh-language':'[data-open-app-language]');
@@ -176,7 +176,7 @@ test('language picker shows CSS flags on desktop and mobile with keyboard and fo
       for(const code of order){
         const icon=p.locator('[data-app-language="'+code+'"] .home-flag-'+code);
         assert.equal(await icon.count(),1);
-        assert.equal(await icon.evaluate(n=>getComputedStyle(n).backgroundImage!=='none'),true);
+        assert.equal(await icon.evaluate(n=>getComputedStyle(n).backgroundImage!=='none'||getComputedStyle(n,'::after').content==='\"ع\"'),true);
         const bounds=await icon.boundingBox();assert(bounds.width>0&&bounds.height>0);
       }
       await p.keyboard.press('Home');assert.equal(await p.evaluate(()=>document.activeElement.dataset.appLanguage),'en');
@@ -194,6 +194,28 @@ test('language picker shows CSS flags on desktop and mobile with keyboard and fo
       assert.equal(await trigger.evaluate(n=>n===document.activeElement),true);
       assert.deepEqual(await p.evaluate(()=>window.__homeExampleMedia.plays),[]);
       report.cases.push({name:'language-flags-dialog',width,keyboardAndFocus:true});
+    }finally{await f.context.close();}
+  }
+});
+
+
+test('desktop study choices fit on one screen in the requested order across common window sizes',async()=>{
+  const order=['en','zh','ar','hi','ru','fr','es','pt','ja','ko','de','it'];
+  for(const [width,height,locale] of [[1834,854,'fr'],[1366,768,'fr'],[1280,640,'fr'],[1024,600,'fr'],[960,600,'ru'],[1280,720,'ar'],[1280,720,'hi'],[1280,720,'pt']]){
+    const f=await fixture(locale,width,height);try{
+      const p=f.page;await p.locator('[data-dh-free]').first().click();
+      await p.locator('[data-screen="language"].active').waitFor();
+      const cards=p.locator('[data-study-language]:visible');
+      assert.deepEqual(await cards.evaluateAll(ns=>ns.map(n=>n.dataset.studyLanguage)),order.filter(c=>c!==locale));
+      const layout=await p.locator('[data-screen="language"] .options').evaluate(n=>getComputedStyle(n).gridTemplateColumns.split(' ').length);
+      assert.equal(layout,4);
+      for(const card of await cards.all()){
+        const b=await card.boundingBox();assert(b.height>=44&&b.x>=0&&b.y>=0&&b.x+b.width<=width+1&&b.y+b.height<=height-10,JSON.stringify({width,height,locale,card:await card.getAttribute('data-study-language'),bounds:b}));
+      }
+      assert.equal(await p.locator('[data-screen="language"]').evaluate(n=>n.scrollHeight<=n.clientHeight+1),true,locale+' '+width+'x'+height+' no chooser scroll');
+      assert.equal(await p.evaluate(()=>document.documentElement.scrollHeight<=innerHeight+1),true);
+      const shot=path.join(OUT,'all-languages-'+locale+'-'+width+'x'+height+'.png');await p.screenshot({path:shot,animations:'disabled'});report.screenshots.push(shot);
+      report.cases.push({name:'desktop-study-choices-one-screen',width,height,locale});
     }finally{await f.context.close();}
   }
 });

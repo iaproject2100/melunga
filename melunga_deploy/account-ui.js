@@ -29,7 +29,11 @@
   var inertElements = [];
 
   function visible() { return panel.style.display === 'block'; }
-  function text() { return copy[window.MelungaGermanAccountUI?.active ? 'de' : typeof nat === 'string' ? nat : 'fr'] || copy.fr; }
+  function text() {
+    var locale=window.MelungaGermanAccountUI?.active ? window.MelungaGermanAccountUI.locale : typeof nat === 'string' ? nat : 'fr';
+    var extra=window.MelungaCourseI18n?.interfaceCopy?.(locale);
+    return extra ? {login:extra.account.pwTabExisting,create:extra.account.pwTabNew,close:extra.account.close} : copy[locale] || copy.fr;
+  }
   function activePanel() {
     // Device replacement opens its code-confirmation dialog above this one.
     return Array.from(document.querySelectorAll('[role="dialog"][aria-modal="true"]')).reverse().find(function (dialog) {

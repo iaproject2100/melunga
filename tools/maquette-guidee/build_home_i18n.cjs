@@ -7,7 +7,8 @@ const root=path.resolve(__dirname,'../..'),web=path.join(root,'melunga_deploy');
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const source=read(path.join(__dirname,'course-locale-keys.json'));
 const supplements=read(path.join(web,'content/course-locales/supplements.json'));
-const codes=['fr','en','de','es','it','zh','ja','ko'];
+const codes=['fr','en','de','es','it','zh','ja','ko','ru','pt','ar','hi'];
+const nativeInterfaceCopy=read(path.join(__dirname,'imports/native-interface-copy-v1.json')).locales;
 const proofStart=source.uiKeys.indexOf('PASSER');assert.ok(proofStart>0);
 const keys=[...new Set([...source.uiKeys.slice(proofStart),'Retour','Fermer',
  'UN SEUL CHOIX POUR COMMENCER','Quelle langue veux-tu parler ?',
@@ -22,7 +23,7 @@ for(const locale of codes){
   languages:data.languages,formats:{page:data.formats.page,nativeAudience:data.formats.nativeAudience}};
 }
 const marker=/\/\* BEGIN GENERATED HOME I18N \*\/[\s\S]*?\/\* END GENERATED HOME I18N \*\//;
-const block='/* BEGIN GENERATED HOME I18N */\n    const homeDictionaries = '+JSON.stringify(dictionaries).replace(/</g,'\\u003c')+';\n    /* END GENERATED HOME I18N */';
+const block='/* BEGIN GENERATED HOME I18N */\n    const homeDictionaries = '+JSON.stringify(dictionaries).replace(/</g,'\\u003c')+';\n    const nativeInterfaceCopy = '+JSON.stringify(nativeInterfaceCopy).replace(/</g,'\\u003c')+';\n    /* END GENERATED HOME I18N */';
 const file=path.join(web,'index.html'),original=fs.readFileSync(file,'utf8');assert.ok(marker.test(original),'home translation markers exist');
 const updated=original.replace(marker,block);
 if(process.argv.includes('--check'))assert.equal(original,updated,'embedded home translations are current');else fs.writeFileSync(file,updated);

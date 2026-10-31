@@ -51,6 +51,7 @@
     ja: ['アカウントを作成', 'ログイン', 'Melungaを始める'],
     ko: ['계정 만들기', '로그인', 'Melunga 시작하기']
   };
+  Object.assign(copy,Object.fromEntries(Object.entries(nativeInterfaceCopy).map(([locale,value])=>[locale,value.accountLabels])));
   function labels() {
     const text = copy[document.documentElement.lang] || copy.fr;
     account.querySelector('span').textContent = text[0];
@@ -480,7 +481,8 @@
     "프랑스어 발음 안내를 소리 내어 읽어 보세요."
   ]
 };
-  const languageNames = {fr:'Français',en:'English',de:'Deutsch',es:'Español',zh:'中文',it:'Italiano',ja:'日本語',ko:'한국어'};
+  Object.assign(copy,Object.fromEntries(Object.entries(nativeInterfaceCopy).map(([locale,value])=>[locale,value.desktopCopy])));
+  const languageNames = {fr:'Français',en:'English',de:'Deutsch',es:'Español',zh:'中文',it:'Italiano',ja:'日本語',ko:'한국어',ru:'Русский',pt:'Português (Brasil)',ar:'العربية',hi:'हिन्दी'};
   const studyLanguageNames = {...languageNames,hi:'हिन्दी',ru:'Русский',pt:'Português',ar:'العربية'};
   const languageOrder = homeStudyLanguageCodes;
   const orderedLanguages = names => languageOrder.filter(code => Object.hasOwn(names,code)).map(code => [code,names[code]]);
@@ -492,6 +494,7 @@
     it:['Lingua del sito','Lingua dell’esempio'],ja:['サイトの言語','例文の言語'],
     ko:['사이트 언어','예문 언어']
   };
+  Object.assign(languageControlLabels,Object.fromEntries(Object.entries(nativeInterfaceCopy).map(([locale,value])=>[locale,value.languageControlLabels])));
   const exampleNames = {
     de:{fr:"Französisch",en:'Englisch',es:'Spanisch',zh:'Chinesisch',de:'Deutsch',it:"Italienisch",ja:"Japanisch",ko:"Koreanisch",hi:"Hindi",ru:"Russisch",pt:"Portugiesisch (Brasilien)",ar:"Arabisch"},
     fr:{fr:"Français",en:'Anglais',es:'Espagnol',zh:'Chinois',de:'Allemand',it:"Italien",ja:"Japonais",ko:"Coréen",hi:"Hindi",ru:"Russe",pt:"Portugais (Brésil)",ar:"Arabe"},en:{fr:"French",en:'English',es:'Spanish',zh:'Chinese',de:'German',it:"Italian",ja:"Japanese",ko:"Korean",hi:"Hindi",ru:"Russian",pt:"Portuguese (Brazil)",ar:"Arabic"},
@@ -499,6 +502,7 @@
     it:{fr:"Francese",en:'Inglese',es:'Spagnolo',zh:'Cinese',de:'Tedesco',it:"Italiano",ja:"Giapponese",ko:"Coreano",hi:"Hindi",ru:"Russo",pt:"Portoghese (Brasile)",ar:"Arabo"},ja:{fr:"フランス語",en:'英語',es:'スペイン語',zh:'中国語',de:'ドイツ語',it:"イタリア語",ja:"日本語",ko:"韓国語",hi:"ヒンディー語",ru:"ロシア語",pt:"ポルトガル語（ブラジル）",ar:"アラビア語"},
     ko:{fr:"프랑스어",en:'영어',es:'스페인어',zh:'중국어',de:'독일어',it:"이탈리아어",ja:"일본어",ko:"한국어",hi:"힌디어",ru:"러시아어",pt:"포르투갈어(브라질)",ar:"아랍어"}
   };
+  for(const locale of Object.keys(nativeInterfaceCopy))exampleNames[locale]=homeDictionaries[locale].languages;
   const flag = code => `<span class="home-flag home-flag-${code}" aria-hidden="true"></span>`;
   const root = document.createElement('main');
   root.className = 'desktop-home';
@@ -596,7 +600,7 @@
     if (typeof currentPriceMarket !== 'undefined') {
       root.querySelector('[data-dh-annual]').textContent = currentPriceMarket.yearly;
       root.querySelector('[data-dh-monthly]').textContent = currentPriceMarket.monthly;
-      const unit = {fr:'mois',en:'month',de:'Monat',es:'mes',zh:'月',it:'mese',ja:'月',ko:'월'}[locale] || 'mois';
+      const unit = nativeInterfaceCopy[locale]?.monthUnit || {fr:'mois',en:'month',de:'Monat',es:'mes',zh:'月',it:'mese',ja:'月',ko:'월'}[locale] || 'mois';
       root.querySelector('[data-dh-equivalent]').textContent = currentPriceMarket.yearlyMonthly
         ? t[46].replace('{m}', currentPriceMarket.yearlyMonthly).replace('{unit}', unit) : '';
       const num = v => parseFloat(String(v).replace(/\s/g,'').replace(',','.').replace(/[^\d.]/g,''));

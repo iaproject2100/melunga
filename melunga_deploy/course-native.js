@@ -1,11 +1,12 @@
 /* Source-verbatim native catalogue views. Reviewed pair bundles are never projected here. */
 (() => {
   'use strict';
-  const MANIFEST_SHA256 = '9e0eff2a8485acc0dc314aaaa6fdd9a28775048fca59c24250cc5b2f819e6206';
+  const MANIFEST_SHA256 = 'e9d294633ef87c97738b90379c9929a609acbf81b5e2596a0e376607ef63759c';
   const ROOT = 'content/native-catalogue/';
   const originalLanguages = Object.freeze(['fr', 'en', 'es', 'it', 'zh', 'ja', 'ko']);
-  const languages = Object.freeze([...originalLanguages, 'de']);
-  const studyLanguages = Object.freeze([...languages,'hi','ru','pt','ar']);
+  const nativeLocaleCodes = Object.freeze(['ru','pt','ar','hi']);
+  const languages = Object.freeze([...originalLanguages, 'de', ...nativeLocaleCodes]);
+  const studyLanguages = Object.freeze([...originalLanguages,'de','hi','ru','pt','ar']);
   const addedImports = Object.freeze({ar:{path:'tools/maquette-guidee/imports/ar-deck-v3.2.json',sha256:'fd566528f263b2a4a43d87292ba8f7150bf2652b7f23dcdfedbd9ce7195909d1'},pt:{path:'tools/maquette-guidee/imports/pt-deck-v1.json',sha256:'3fb7a5ffea38e4444d4cf5b3fe44a0e6cb9758a3d95f5f60cafa9d0877fe914b'},hi:{path:'tools/maquette-guidee/imports/hi-deck-v1.json',sha256:'5c0be1bed4d66bfecd56d4cb5f320756bb770e4e871931cbaefb7d9b547479c3'},ru:{path:'tools/maquette-guidee/imports/ru-deck-v1.json',sha256:'751f8774365882775f8b2b640980c872e9a91bb9f2bf985cd568427be0253ca8'}});
   const GERMAN_SOURCE = 'tools/maquette-guidee/imports/de-deck-v3.1.json';
   const GERMAN_SOURCE_SHA256 = '49d6f1cd3b2a44b4ab4efcbae4c5f58988ebc7e142ebb74b1505d4ce9e39d789';
@@ -17,6 +18,7 @@
   const flags = Object.freeze({fr:'🇫🇷', en:'🇺🇸', es:'🇪🇸', it:'🇮🇹', zh:'🇨🇳', ja:'🇯🇵', ko:'🇰🇷', de:'🇩🇪',hi:'🇮🇳',ru:'🇷🇺',pt:'🇧🇷',ar:'ع'});
   const contentTypes = new Set(['utterance', 'vocabulary', 'number', 'incomplete', 'review']);
   let manifest = null, manifestPromise = null, germanMeanings = null;
+  const localeMeanings = new Map();
   const eligibleByPair = new Map(), freeByPair = new Map(), bankCache = new Map(), modelCache = new Map();
 
   function requireValue(condition, message) {
@@ -76,7 +78,7 @@
       && same(document.nativeLanguageIds, languages) && same(document.studyLanguageIds, studyLanguages)
       && same(document.reviewedPairIds, reviewedPairIds)
       && same(document.derivedPairIds, pairIds.filter(id => !reviewed.has(id)))
-      && Object.keys(document.pairs || {}).length === 84, 'invalid pair domain');
+      && Object.keys(document.pairs || {}).length === 128, 'invalid pair domain');
     requireValue(document.sourceCardCount === 54583 && document.activeCatalogueCount === 52994
       && document.reservedCatalogueCount === 1589 && document.excludedModernExtraCount === 1539
       && document.source?.reviewedHistoricalFreeIdsVerified === 2218
@@ -91,14 +93,15 @@
       requireValue(policy?.nativeLanguage === native && policy.studyLanguage === study
         && bank?.path === ROOT + study + '.json' && /^[a-f0-9]{64}$/.test(bank.sha256)
         && bank.sourceCardCount === cardCounts[study] && bank.reviewedPairId === basePairs[study], 'invalid pair policy');
-      if (study === 'de') requireValue(policy.sourceType === 'validated-import' && policy.importedEligibleCount === cardCounts.de
+      if (study === 'de') requireValue(policy.sourceType === (nativeLocaleCodes.includes(native) ? 'native-locale-translation' : 'validated-import') && policy.importedEligibleCount === cardCounts.de
         && policy.eligibleCount === cardCounts.de
         && policy.historicalFreeCount === 283 && bank.sourceType === 'validated-import'
         && bank.importedSourcePath === GERMAN_SOURCE && bank.importedSourceSha256 === GERMAN_SOURCE_SHA256
         && bank.activeCatalogueCount === 4444 && bank.reservedCatalogueCount === 75, 'invalid German import policy');
-      if (addedImports[study]) requireValue(policy.sourceType === 'provided-import'
+      if (addedImports[study]) requireValue(policy.sourceType === (nativeLocaleCodes.includes(native) ? 'native-locale-translation' : 'provided-import')
         && policy.eligibleCount === cardCounts[study] && policy.historicalFreeCount === (study === 'ru' ? 284 : 283)
         && bank.importedSourcePath === addedImports[study].path && bank.importedSourceSha256 === addedImports[study].sha256, 'invalid added import policy');
+      if (nativeLocaleCodes.includes(native)) requireValue(policy.sourceType === 'native-locale-translation' && policy.meaningSourcePath === ROOT + native + '-native-meanings.json', 'invalid native locale policy');
       if (native === 'de') requireValue(policy.sourceType === 'german-native-translation'
         && policy.meaningSourcePath === ROOT + 'de-native-meanings.json', 'invalid German native policy');
       const allowed = indices(document.eligibilityGroups?.[policy.eligibilityGroup], cardCounts[study]);
@@ -114,6 +117,14 @@
       && meanings.sourceCardCount === 32115 && meanings.conceptCount === 15869
       && meanings.newTranslationCount === 15249 && meanings.reusedValidatedTranslationCount === 620,
       'invalid German native meaning source');
+    requireValue(same(Object.keys(document.nativeLocaleMeanings || {}), nativeLocaleCodes), 'missing native locale sidecars');
+    for (const native of nativeLocaleCodes) {
+      const row=document.nativeLocaleMeanings[native];
+      requireValue(row.path === ROOT + native + '-native-meanings.json' && /^[a-f0-9]{64}$/.test(row.sha256)
+        && row.sourcePath === 'tools/maquette-guidee/imports/native-meanings-ru-pt-ar-hi-v1.json'
+        && /^[a-f0-9]{64}$/.test(row.sourceSha256) && Number.isSafeInteger(row.conceptCount) && row.conceptCount>0
+        && same(row.studyLanguageIds, studyLanguages.filter(study=>study!==native)), 'invalid native locale descriptor');
+    }
     for (const pair of pairIds) {eligibleByPair.set(pair, eligibility.get(pair)); freeByPair.set(pair, historical.get(pair));}
     return freeze(document);
   }
@@ -219,15 +230,31 @@
     germanMeanings = freeze(data);
     return germanMeanings;
   }
+  async function nativeLocaleMeanings(native, document, signal) {
+    if (localeMeanings.has(native)) return localeMeanings.get(native);
+    const descriptor=document.nativeLocaleMeanings[native];
+    const data=await checkedJson(descriptor.path, descriptor.sha256, signal);
+    requireValue(data?.version===1 && data.id==='native-locale-meanings-'+native && data.nativeLanguage===native
+      && data.sourcePath===descriptor.sourcePath && data.sourceSha256===descriptor.sourceSha256
+      && data.conceptCount===descriptor.conceptCount && data.sourceCardCount===descriptor.sourceCardCount
+      && Array.isArray(data.concepts) && data.concepts.length===descriptor.conceptCount
+      && data.concepts.every(text=>typeof text==='string'&&text.trim())
+      && same(Object.keys(data.banks||{}),descriptor.studyLanguageIds), 'invalid native locale meanings');
+    for(const study of descriptor.studyLanguageIds){const row=data.banks[study];
+      requireValue(row.sourceBankSha256===document.banks[study].sha256 && Array.isArray(row.conceptIds)
+        && row.conceptIds.length===cardCounts[study] && row.conceptIds.every(i=>Number.isInteger(i)&&i>=0&&i<data.concepts.length), 'native locale source identity mismatch');
+    }
+    localeMeanings.set(native,freeze(data));return data;
+  }
   function sourceModels(pairId, bank, document, meanings) {
     if (modelCache.has(pairId)) return modelCache.get(pairId);
     const [native, study] = pairId.split('-'), policy = document.policies, result = new Map();
-    const nativeField = native === 'de' ? 'germanNativeMeanings' : policy.meaningFields[native];
+    const nativeField = native === 'de' ? 'germanNativeMeanings' : nativeLocaleCodes.includes(native) ? 'nativeLocaleMeanings.'+native : policy.meaningFields[native];
     const requestedPhoneticField = (study === 'zh' ? policy.chinesePhoneticFields : policy.phoneticFields)[native];
     const definitions = new Map(bank.levels.flatMap(level => level.themes.map(theme => [level.level + ':' + theme.id, theme])));
     for (const index of document.eligibilityGroups[document.pairs[pairId].eligibilityGroup]) {
       const raw = bank.cards[index], location = bank.locations[index], id = 'catalogue:' + study + ':' + index;
-      const meaning = native === 'de' ? meanings?.concepts[meanings.banks[study].conceptIds[index]] : raw[nativeField];
+      const meaning = native === 'de' || nativeLocaleCodes.includes(native) ? meanings?.concepts[meanings.banks[study].conceptIds[index]] : raw[nativeField];
       requireValue(typeof meaning === 'string' && meaning.trim().length > 0, 'missing requested native meaning');
       let phon = raw[requestedPhoneticField] || '', phoneticField = requestedPhoneticField;
       let phoneticMode = phon ? 'native-source' : 'unavailable';
@@ -247,7 +274,7 @@
             sourceDeckSha256:bank.sourceDeckSha256, originalFields:raw
           } : {decksLiteralSha256:document.source.decksLiteralSha256, classicFields:raw}),
           ...(native === 'de' ? {nativeMeaningSource:{path:document.germanNativeMeanings.path,
-            sha256:document.germanNativeMeanings.sha256, conceptId:meanings.banks[study].conceptIds[index]}} : {})},
+            sha256:document.germanNativeMeanings.sha256, conceptId:meanings.banks[study].conceptIds[index]}} : nativeLocaleCodes.includes(native) ? {nativeMeaningSource:{path:document.nativeLocaleMeanings[native].path,sha256:document.nativeLocaleMeanings[native].sha256,conceptId:meanings.banks[study].conceptIds[index]}} : {})},
         placement:{domain:definition?.domain || 'reserve', themeId:location[1], section:definition?.section || 'reserve',
           classification:'existing-catalogue-native-source-view', plannedPrerequisiteIndices:[]}};
       if (location[3] !== null) model.lexicalClass = location[3];
@@ -289,11 +316,11 @@
     return Object.fromEntries(Object.entries(result).sort(([left], [right]) => left.localeCompare(right)));
   }
   async function loadPair(pairId, level, {signal} = {}) {
-    requireValue(isPair(pairId) && !isReviewed(pairId), 'only the 49 additional native pairs use this loader');
+    requireValue(isPair(pairId) && !isReviewed(pairId), 'only additional native pairs use this loader');
     requireValue(Number.isInteger(level) && level >= 1 && level <= 10, 'invalid level');
     aborted(signal);
     const document = await ensureRights(), [native, study] = pairId.split('-');
-    const [bank, meanings] = await Promise.all([sourceBank(study, signal), native === 'de' ? nativeGermanMeanings(document, signal) : null]);
+    const [bank, meanings] = await Promise.all([sourceBank(study, signal), native === 'de' ? nativeGermanMeanings(document, signal) : nativeLocaleCodes.includes(native) ? nativeLocaleMeanings(native,document,signal) : null]);
     const models = sourceModels(pairId, bank, document, meanings), dictionary = i18n();
     aborted(signal);
     const sourceLevel = bank.levels[level - 1], themes = [];

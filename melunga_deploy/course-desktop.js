@@ -56,6 +56,10 @@
     ja: {themes:'テーマ', allThemes:'すべてのテーマ'},
     ko: {themes:'주제', allThemes:'모든 주제'}
   };
+  for(const locale of ['ru','pt','ar','hi']){
+    const copy=window.MelungaCourseI18n.interfaceCopy(locale);
+    labels[locale]=copy.desktopLabels;mobileLabels[locale]=copy.mobileLabels;sidebarLabels[locale]=copy.sidebarLabels;
+  }
   let layout = null, pending = 0, moved = false;
   let mobileDock = null;
   let mobilePhoto = null, mobilePhotoSource = null;

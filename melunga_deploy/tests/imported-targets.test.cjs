@@ -38,8 +38,8 @@ test('four complete imported decks keep every field, level, category and source 
  }
 });
 test('all 280 imported pair-levels preserve exact study/meaning/phonetic fields and L1 access',async()=>{
- const api=fixture();await api.ensureRights();assert.equal(api.pairIds.length,84);
- assert(!api.isPair('de-pt'));assert(!api.isPair('pt-en'));assert(!api.isPair('de-hi'));assert(!api.isPair('hi-en'));assert(!api.isPair('de-ru'));
+ const api=fixture();await api.ensureRights();assert.equal(api.pairIds.length,128);
+ assert(!api.isPair('de-pt'));assert(api.isPair('pt-en'));assert(!api.isPair('de-hi'));assert(api.isPair('hi-en'));assert(!api.isPair('de-ru'));
  const meanings={fr:'frm',en:'en',es:'esm',it:'itm',zh:'cn',ja:'jam',ko:'kom'},phons={fr:'pf',en:'py',es:'ps',it:'pi',zh:'phon',ja:'py',ko:'py'};
  for(const code of Object.keys(files)){
   const cards=JSON.parse(fs.readFileSync(path.join(ROOT,'tools/maquette-guidee/imports/'+code+'-deck-'+(code==='ar'?'v3.2':'v1')+'.json')));

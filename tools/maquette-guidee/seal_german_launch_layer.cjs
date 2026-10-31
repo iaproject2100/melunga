@@ -25,6 +25,7 @@ const addedCandidates=['melunga_deploy/content/native-catalogue/de.json','tools/
  'melunga_deploy/content/native-catalogue/ar.json',
  ...['ar-deck-v3.2.json','ar-deck-v3.2-received.json','ar-editorial-cleanup-v3.2.json','ar-tr-map-v3.2.json','ar-themes-v1.json','native-interface-copy-v1.json'].map(file=>'tools/maquette-guidee/imports/'+file),
  ...['ru','pt','ar','hi'].map(code=>'melunga_deploy/content/course-locales/'+code+'.json')];
+addedCandidates.push('tools/maquette-guidee/native_locale_catalogues.py','tools/maquette-guidee/imports/native-meanings-ru-pt-ar-hi-v1.json',...['ru','pt','ar','hi'].map(code=>'melunga_deploy/content/native-catalogue/'+code+'-native-meanings.json'));
 const sha=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
 const git=(args)=>execFileSync('git',args,{cwd:ROOT,maxBuffer:40*1024*1024});
 const changed=git(['diff','--name-only',BASE,'--','melunga_deploy','tools/maquette-guidee']).toString().trim().split('\n').filter(Boolean)

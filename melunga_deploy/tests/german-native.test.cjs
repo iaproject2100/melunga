@@ -30,14 +30,14 @@ function fixture({baseline=false,paid=false}={}){
 async function checked(name,fn){try{await fn();report.cases.push(name);}catch(error){report.errors.push(name+': '+error.message);throw error;}}
 after(()=>{report.status=report.errors.length?'failed':'passed';if(process.env.GERMAN_NATIVE_UNIT_REPORT)fs.writeFileSync(process.env.GERMAN_NATIVE_UNIT_REPORT,JSON.stringify(report,null,2)+'\n');assert.deepEqual(report.errors,[]);});
 
-test('eight native languages expose 84 available directions and all previous banks remain byte-identical',()=>checked('source-domain-and-immutable-banks',async()=>{
+test('twelve native languages expose 128 available directions and all previous banks remain byte-identical',()=>checked('source-domain-and-immutable-banks',async()=>{
  const manifest=json('content/native-catalogue/manifest.json'),f=fixture();
- assert.deepEqual(plain(f.api.pairIds),CODES.flatMap(native=>[...CODES,'hi','ru','pt','ar'].filter(study=>native!==study&&!(native==='de'&&['hi','ru','pt','ar'].includes(study))).map(study=>native+'-'+study)));
- assert.equal(f.api.pairIds.length,84);assert.deepEqual(manifest.nativeLanguageIds,CODES);assert.deepEqual(manifest.studyLanguageIds,[...CODES,'hi','ru','pt','ar']);
+ assert.deepEqual(plain(f.api.pairIds),[...CODES,'ru','pt','ar','hi'].flatMap(native=>[...CODES,'hi','ru','pt','ar'].filter(study=>native!==study&&!(native==='de'&&['hi','ru','pt','ar'].includes(study))).map(study=>native+'-'+study)));
+ assert.equal(f.api.pairIds.length,128);assert.deepEqual(manifest.nativeLanguageIds,[...CODES,'ru','pt','ar','hi']);assert.deepEqual(manifest.studyLanguageIds,[...CODES,'hi','ru','pt','ar']);
  for(const code of CODES){assert.equal(f.api.isPair(code+'-'+code),false);assert.equal(hash(read('content/native-catalogue/'+code+'.json')),hash(old('content/native-catalogue/'+code+'.json')),code+' source bank bytes');}
  assert.equal(hash(read('content/course-access.json')),hash(old('content/course-access.json')),'historical account rights unchanged');
  assert.equal(hash(read('content/niveaux-progressifs/manifest.json')),hash(old('content/niveaux-progressifs/manifest.json')));
- report.sourceBankCount=8;report.nativePairCount=84;
+ report.sourceBankCount=8;report.nativePairCount=128;
 }));
 
 test('32,115 source identities resolve through the complete German translation sidecar without blank meanings',()=>checked('complete-german-meaning-sidecar',async()=>{

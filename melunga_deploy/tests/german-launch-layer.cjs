@@ -13,7 +13,7 @@ const {execFileSync} = require('node:child_process');
 const ROOT = path.resolve(__dirname, '../..');
 const BASE = '541afb7f67b499130af60211e72a8614bdaaf31d';
 const FIXTURE = 'melunga_deploy/tests/fixtures/german-launch-layer.json';
-const FIXTURE_SHA256 = 'b9702b6ee929f5b1acb28c926cf4bf375983680954f72d12ac8d5d4f0fcbab3d';
+const FIXTURE_SHA256 = '4362414bf8d20cfbc69712d0e9d5a4adf1c6e8cebcfc1e2101228eaaf060bcf2';
 // BEGIN FINITE GERMAN PATHS — written by seal_german_launch_layer.cjs.
 const MODIFIED = Object.freeze([
   "melunga_deploy/account-ui.js",
@@ -57,11 +57,15 @@ const ADDED = Object.freeze([
   "melunga_deploy/content/course-locales/hi.json",
   "melunga_deploy/content/course-locales/pt.json",
   "melunga_deploy/content/course-locales/ru.json",
+  "melunga_deploy/content/native-catalogue/ar-native-meanings.json",
   "melunga_deploy/content/native-catalogue/ar.json",
   "melunga_deploy/content/native-catalogue/de-native-meanings.json",
   "melunga_deploy/content/native-catalogue/de.json",
+  "melunga_deploy/content/native-catalogue/hi-native-meanings.json",
   "melunga_deploy/content/native-catalogue/hi.json",
+  "melunga_deploy/content/native-catalogue/pt-native-meanings.json",
   "melunga_deploy/content/native-catalogue/pt.json",
+  "melunga_deploy/content/native-catalogue/ru-native-meanings.json",
   "melunga_deploy/content/native-catalogue/ru.json",
   "melunga_deploy/german-account-ui.js",
   "tools/maquette-guidee/imported_target_catalogues.py",
@@ -76,11 +80,13 @@ const ADDED = Object.freeze([
   "tools/maquette-guidee/imports/hi-deck-v1.json",
   "tools/maquette-guidee/imports/hi-themes-v1.json",
   "tools/maquette-guidee/imports/native-interface-copy-v1.json",
+  "tools/maquette-guidee/imports/native-meanings-ru-pt-ar-hi-v1.json",
   "tools/maquette-guidee/imports/pt-deck-v1.json",
   "tools/maquette-guidee/imports/pt-themes-v1.json",
   "tools/maquette-guidee/imports/pt-tr-map-v1.json",
   "tools/maquette-guidee/imports/ru-deck-v1.json",
-  "tools/maquette-guidee/imports/ru-themes-v1.json"
+  "tools/maquette-guidee/imports/ru-themes-v1.json",
+  "tools/maquette-guidee/native_locale_catalogues.py"
 ]);
 // END FINITE GERMAN PATHS
 const sha = bytes => crypto.createHash('sha256').update(bytes).digest('hex');

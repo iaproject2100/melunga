@@ -52,7 +52,7 @@
   const pairFlag = pair => pair.studyLanguage === 'en' ? '🇺🇸' : pair.flag;
   const voiceSelection = window.MelungaVoiceSelection;
   voiceSelection?.preload().catch(() => {});
-  const nativeCodes = ['fr', 'en', 'es', 'it', 'zh', 'ja', 'ko', 'de'];
+  const nativeCodes = ['fr', 'en', 'es', 'it', 'zh', 'ja', 'ko', 'de', 'ru', 'pt', 'ar', 'hi'];
   const routeParameters = new URL(window.location.href).searchParams;
   const explicitPair = routeParameters.get('pair');
   let savedPair = '', savedLevel = '1', preferredNative = 'fr';
@@ -214,6 +214,7 @@
     'Voix féminine': '女声', 'Voix masculine': '男声',
     'Audio indisponible. Réessaie.': '语音暂不可用，请重试。'
   };
+  for(const locale of ['ru','pt','ar','hi'])visibleSequenceLabels[locale]=courseI18n.interfaceCopy(locale).stages;
   const tr = value => courseI18n ? courseI18n.t(state.nativeLanguage, value)
     : state.nativeLanguage === 'zh' ? chinese[value] || value : value;
   const format = (key, n) => courseI18n.format(state.nativeLanguage, key, {n});
@@ -502,6 +503,8 @@
       it: ['Termini', 'Privacy'], ja: ['利用規約', 'プライバシー'], ko: ['이용약관', '개인정보'], de: ['AGB', 'Datenschutz']
     };
     const native = state.nativeLanguage;
+    const interfaceCopy=courseI18n.interfaceCopy(native);
+    if(interfaceCopy)labels[native]=[interfaceCopy.desktopLabels.terms,interfaceCopy.desktopLabels.privacy];
     const language = ['fr', 'en', 'es', 'zh'].includes(native) ? native : 'en';
     const suffix = language === 'fr' ? '' : '-' + language;
     return ['terms', 'privacy'].map((key, index) => ({
@@ -1331,6 +1334,7 @@
     }
     text(ui.translation, waitingForChoice ? '' : phrase.native);
     ui.translation.lang = state.pair.nativeLanguage;
+    ui.translation.dir = 'auto';
     text(ui.reading, phrase.reading);
     ui.reading.hidden = state.pair.studyLanguage === 'zh' || !state.readingVisible || masked || waitingForChoice || !phrase.reading;
     ui.readingToggle.hidden = !phrase.reading || state.pair.studyLanguage !== 'zh' && (masked || waitingForChoice);

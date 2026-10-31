@@ -36,6 +36,6 @@ test('unreviewed machine lesson translations never enter the shipped catalogue o
   const original=execFileSync('git',['show',BASE+':'+file],{cwd:ROOT,maxBuffer:20*1024*1024});assert(original.equals(fs.readFileSync(path.join(ROOT,file))));
  }
  const c={};c.window=c;vm.runInNewContext(read('melunga_deploy/course-native.js'),c);
- for(const pair of ['ru-en','pt-en','ar-en','hi-en'])assert.equal(c.MelungaNativeCourses.isPair(pair),false,'native route requires reviewed meaning sidecars');
- assert.equal(fs.existsSync(path.join(WEB,'content/native-catalogue/ru-native-meanings.json')),false);
+ for(const pair of ['ru-en','pt-en','ar-en','hi-en'])assert.equal(c.MelungaNativeCourses.isPair(pair),true,'native route has supplied meaning sidecars');
+ assert.equal(fs.existsSync(path.join(WEB,'content/native-catalogue/ru-native-meanings.json')),true);
 });

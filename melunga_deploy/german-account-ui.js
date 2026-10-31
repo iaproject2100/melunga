@@ -1,4 +1,4 @@
-/* German presentation for the validated modern course account entry.
+/* Presentation for modern account entry in locales absent from the classic model.
  * The bundled classic lesson remains on its supported French native deck. */
 (function () {
   'use strict';
@@ -11,9 +11,11 @@
   var approved = window.approvedCourseReturn;
   approved = approved && window.validateCourseReturn(approved.pair, approved.level,
     approved.nativeLanguage, approved.studyLanguage);
-  if (!approved || approved.nativeLanguage !== 'de') return;
+  var locale = approved && approved.nativeLanguage;
+  var extra = window.MelungaCourseI18n?.interfaceCopy?.(locale);
+  if (!approved || locale !== 'de' && !extra) return;
 
-  var copy = {
+  var copy = extra ? extra.account : {
     pwTitle: 'Vollständigen Zugang freischalten',
     pwDesc: 'L1 · dauerhaft kostenlos<br>Alle Inhalte von L2 bis L10 freischalten.<br>Einmalige Zahlung, ohne automatische Verlängerung.',
     pwFree: '✓ Sichere Zahlung',
@@ -47,24 +49,24 @@
     if (node && node[html ? 'innerHTML' : 'textContent'] !== value) node[html ? 'innerHTML' : 'textContent'] = value;
   }
   function refresh() {
-    document.documentElement.lang = 'de';
+    document.documentElement.lang = locale;
     var panel = document.getElementById('paywall');
     if (!panel) return;
-    panel.lang = 'de';
+    panel.lang = locale;
     var existing = document.getElementById('pwTabExisting').classList.contains('on');
-    setText('pwTitle', existing ? 'Anmelden' : panel.dataset.accountEntry === 'menu' ? 'Konto erstellen' : copy.pwTitle);
+    setText('pwTitle', existing ? copy.pwTabExisting : panel.dataset.accountEntry === 'menu' ? copy.pwTabNew : copy.pwTitle);
     ['pwDesc','pwMonthlyLabel','pwAnnualLabel','pwSaveBadge'].forEach(function (key) { setText(key, copy[key], key === 'pwDesc'); });
     setText('pwTabNewTxt', copy.pwTabNew);
     setText('pwTabExistingTxt', copy.pwTabExisting);
     setText('pwLoginBtnTxt', copy.loginBtn);
-    [['pwEmail','E-Mail-Adresse'],['pwLoginEmail','E-Mail-Adresse'],['pwPassword',copy.passwordPh],
+    [['pwEmail',copy.emailLabel||'E-Mail-Adresse'],['pwLoginEmail',copy.emailLabel||'E-Mail-Adresse'],['pwPassword',copy.passwordPh],
       ['pwLoginPassword',copy.passwordPh],['pwPassword2',copy.passwordPh2]].forEach(function (item) {
       var input = document.getElementById(item[0]);
       if (input) { input.placeholder = item[1]; input.setAttribute('aria-label', item[1]); }
     });
-    document.getElementById('pwClose').setAttribute('aria-label', 'Schließen');
+    document.getElementById('pwClose').setAttribute('aria-label', copy.close||'Schließen');
   }
-  window.MelungaGermanAccountUI = Object.freeze({active: true, locale: 'de', refresh: refresh});
+  window.MelungaGermanAccountUI = Object.freeze({active: true, locale: locale, refresh: refresh});
   // The classic data model has no German native meanings. Its hidden underlay
   // uses French while the immutable approved return continues to name de-*.
   window.nat = 'fr';
@@ -74,8 +76,8 @@
     window[name] = function () { var result = original.apply(this, arguments); refresh(); return result; };
   });
   var setSite = window.wlcSetSite;
-  window.wlcSetSite = function (locale) {
-    var result = setSite.call(this, locale === 'de' ? 'fr' : locale);
+  window.wlcSetSite = function (siteLocale) {
+    var result = setSite.call(this, ['de','ru','pt','ar','hi'].includes(siteLocale) ? 'fr' : siteLocale);
     refresh();
     return result;
   };
@@ -94,6 +96,7 @@
     'Le code n’a pas pu être envoyé. Réessayez dans un instant.': 'Der Code konnte nicht gesendet werden. Versuch es gleich noch einmal.',
     'Chargement plus long que prévu · Réessayer': 'Das Laden dauert länger als erwartet · Noch einmal versuchen'
   };
+  if(extra)Object.assign(messages,extra.deviceMessages);
   Object.keys(copy).forEach(function (key) {
     if (window.UI?.fr?.[key] && !/<[^>]+>/.test(window.UI.fr[key])) messages[window.UI.fr[key]] = copy[key];
   });

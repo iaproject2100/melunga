@@ -9,9 +9,12 @@ const raw=file=>fs.readFileSync(path.join(WEB,file)),json=file=>JSON.parse(raw(f
 const historical=new Map();function old(file){if(!historical.has(file))historical.set(file,execFileSync('git',['show',BASE+':melunga_deploy/'+file],{cwd:ROOT,maxBuffer:50*1024*1024}));return historical.get(file);}
 const nativeManifest=json('content/native-catalogue/manifest.json'),meanings=json(nativeManifest.germanNativeMeanings.path),dictionary=json('content/course-locales/de.json');
 const banks=Object.fromEntries([...ORIGINAL,'hi','ru','pt','ar'].map(code=>[code,json('content/native-catalogue/'+code+'.json')]));
+const nativeLocaleCodes=['ru','pt','ar','hi'];
+const nativeInput=JSON.parse(fs.readFileSync(path.join(ROOT,'tools/maquette-guidee/imports/native-meanings-ru-pt-ar-hi-v1.json')));
+const nativeCopy=JSON.parse(fs.readFileSync(path.join(ROOT,'tools/maquette-guidee/imports/native-interface-copy-v1.json'))).locales;
 const report={status:'running',baseCommit:BASE,allResponsesLocal:true,actualProviderCalled:false,physicalDeviceTested:false,touchEmulated:true,actualAudioPlayed:false,cases:[],errors:[],unexpected:[],screenshots:[]};
 let browser,initial;
-function fingerprint(){const reviewed=json('content/niveaux-progressifs/manifest.json');const files=[...fs.readdirSync(WEB).filter(f=>/\.(html|js|css)$/.test(f)),'content/native-catalogue/manifest.json',nativeManifest.germanNativeMeanings.path,'content/course-access.json','content/niveaux-progressifs/manifest.json',...CODES.map(c=>'content/native-catalogue/'+c+'.json'),...CODES.filter(c=>c!=='fr').map(c=>'content/course-locales/'+c+'.json'),'content/course-locales/supplements.json',...reviewed.pairs.flatMap(p=>[p.repertoirePath,...p.levels.map(l=>l.dataPath)])];return Object.fromEntries(files.sort().map(file=>[file,hash(raw(file))]));}
+function fingerprint(){const reviewed=json('content/niveaux-progressifs/manifest.json');const files=[...fs.readdirSync(WEB).filter(f=>/\.(html|js|css)$/.test(f)),'content/native-catalogue/manifest.json',nativeManifest.germanNativeMeanings.path,...nativeLocaleCodes.map(code=>nativeManifest.nativeLocaleMeanings[code].path),'content/course-access.json','content/niveaux-progressifs/manifest.json',...CODES.map(c=>'content/native-catalogue/'+c+'.json'),...CODES.filter(c=>c!=='fr').map(c=>'content/course-locales/'+c+'.json'),'content/course-locales/supplements.json',...reviewed.pairs.flatMap(p=>[p.repertoirePath,...p.levels.map(l=>l.dataPath)])];return Object.fromEntries(files.sort().map(file=>[file,hash(raw(file))]));}
 function catalogue(){const now=Date.now(),voiceCodes={fr:'fr-FR',en:'en-US',es:'es-ES',it:'it-IT',zh:'cmn-CN',ja:'ja-JP',ko:'ko-KR',de:'de-DE'};return{version:1,source:'google-voices-list',previewOnly:true,selectionVersion:'kartech-2026-10-30-en-us',verifiedAt:new Date(now-1000).toISOString(),expiresAt:new Date(now+240000).toISOString(),languages:Object.fromEntries(CODES.map(language=>{const languageCode=voiceCodes[language],chirp=[['Aoede','FEMALE'],['Kore','FEMALE'],['Charon','MALE']].map(([name,gender])=>({name:languageCode+'-Chirp3-HD-'+name,languageCode,gender,engine:'chirp3',rateMode:'client'})),approved=language==='fr'?'Aoede':language==='it'?'Charon':'Kore';return[language,{language,available:true,chirp,defaultVoice:chirp.find(v=>v.name.endsWith('-'+approved)),waveNet:{name:languageCode+'-Wavenet-A',languageCode,gender:'FEMALE',engine:'wavenet',rateMode:'server'}}];}))};}
 before(async()=>{fs.mkdirSync(OUT,{recursive:true});initial=fingerprint();browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',args:['--no-sandbox']});});
 after(async()=>{await browser?.close();report.inputsStable=JSON.stringify(initial)===JSON.stringify(fingerprint());report.status=!report.errors.length&&!report.unexpected.length&&report.inputsStable?'passed':'failed';report.inputSha256=initial;fs.writeFileSync(path.join(OUT,'acceptance.json'),JSON.stringify(report,null,2)+'\n');assert.equal(report.inputsStable,true,'accepted sources remain frozen');assert.deepEqual(report.errors,[]);assert.deepEqual(report.unexpected,[]);});
@@ -33,12 +36,13 @@ async function fixture({width=1366,height=900,paid=true,baseline=false,pair='fr-
   const body=baseline&&(/^[^/]+\.(?:html|css|js)$/.test(relative)||relative==='content/native-catalogue/manifest.json')?old(relative):raw(relative);
   return route.fulfill({body,contentType:{'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.webp':'image/webp','.svg':'image/svg+xml','.woff2':'font/woff2'}[path.extname(file)]||'application/octet-stream'});
  }catch(error){report.errors.push('fixture: '+error.message);await route.abort().catch(()=>{});}});
- const p=f.page=await context.newPage();p.setDefaultTimeout(12000);p.setDefaultNavigationTimeout(15000);p.on('dialog',async dialog=>{report.unexpected.push({dialog:dialog.type(),message:dialog.message()});await dialog.dismiss();});p.on('pageerror',error=>report.errors.push(error.message));f.close=()=>context.close();return f;
+ if(process.env.GERMAN_NATIVE_DEBUG)await context.addInitScript(()=>{window.__MELUNGA_DEBUG=true;});
+ const p=f.page=await context.newPage();p.setDefaultTimeout(12000);p.setDefaultNavigationTimeout(15000);p.on('dialog',async dialog=>{report.unexpected.push({dialog:dialog.type(),message:dialog.message()});await dialog.dismiss();});p.on('pageerror',error=>report.errors.push(error.message));f.close=async()=>{if(process.env.GERMAN_NATIVE_DEBUG)console.log('native debug',JSON.stringify(await p.evaluate(async()=>{const s=window.MelungaMockup?.state();let load;try{const r=await window.MelungaNativeCourses?.loadPair('ru-en',1);load={themes:r.pair.themes.length};}catch(e){load={error:e.message};}return{diagnostic:window.__courseDiagnostic,pairId:s?.pairId,screen:s?.screen,level:s?.level,lang:document.documentElement.lang,loading:document.getElementById('mgLoadingText')?.textContent,status:document.getElementById('mgStatus')?.textContent,load,rights:window.MelungaCourseAccess?.state?.()};})));await context.close();};return f;
 }
 const state=p=>p.evaluate(()=>window.MelungaMockup.state());
 async function settle(p){await p.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));}
-async function ready(p,pair,level=1,screen='themes'){if(process.env.GERMAN_NATIVE_DEBUG)console.log('ready before',pair,level,screen,p.url());await p.waitForFunction(({pair,level,screen})=>{const s=window.MelungaMockup?.state();return s?.pairId===pair&&s.level===level&&s.screen===screen;},{pair,level,screen},{timeout:30000});await p.waitForFunction(()=>window.MelungaVoiceSelection?.state().status==='ready');await p.waitForFunction(()=>!document.documentElement.classList.contains('course-presentation-pending'));await settle(p);if(process.env.GERMAN_NATIVE_DEBUG)console.log('ready after',pair,screen,p.url());}
-async function goCourse(f,pair='fr-ru',level=1,direct=false){await f.page.goto(ORIGIN+'/parcours-niveaux.html?'+new URLSearchParams({pair,level:String(level),...(direct?{start:'lesson'}:{})}),{waitUntil:'domcontentloaded'});if(!direct)return ready(f.page,pair,level);await f.page.waitForFunction(()=>['lesson','sequences'].includes(window.MelungaMockup?.state().screen),null,{timeout:30000});if((await state(f.page)).screen==='sequences')await f.page.locator('#mgSequences .mg-sequence:visible').first().click();await ready(f.page,pair,level,'lesson');}
+async function ready(p,pair,level=1,screen='themes'){if(process.env.GERMAN_NATIVE_DEBUG)console.log('ready before',pair,level,screen,p.url());await p.waitForFunction(({pair,level,screen})=>{const s=window.MelungaMockup?.state();return s?.pairId===pair&&s.level===level&&s.screen===screen;},{pair,level,screen},{timeout:process.env.GERMAN_NATIVE_DEBUG?5000:30000});await p.waitForFunction(()=>window.MelungaVoiceSelection?.state().status==='ready');await p.waitForFunction(()=>!document.documentElement.classList.contains('course-presentation-pending'));await settle(p);if(process.env.GERMAN_NATIVE_DEBUG)console.log('ready after',pair,screen,p.url());}
+async function goCourse(f,pair='fr-ru',level=1,direct=false){await f.page.goto(ORIGIN+'/parcours-niveaux.html?'+new URLSearchParams({pair,level:String(level),...(direct?{start:'lesson'}:{})}),{waitUntil:'domcontentloaded'});if(!direct)return ready(f.page,pair,level);await f.page.waitForFunction(()=>['lesson','sequences'].includes(window.MelungaMockup?.state().screen),null,{timeout:process.env.GERMAN_NATIVE_DEBUG?5000:30000});if((await state(f.page)).screen==='sequences')await f.page.locator('#mgSequences .mg-sequence:visible').first().click();await ready(f.page,pair,level,'lesson');}
 async function tap(p,selector){if(process.env.GERMAN_NATIVE_DEBUG)console.log('tap before',selector,p.url());const n=p.locator(selector).first();await n.scrollIntoViewIfNeeded();if(p.viewportSize().width<960)await n.tap();else await n.click();if(process.env.GERMAN_NATIVE_DEBUG)console.log('tap after',selector,p.url());}
 async function fit(p){const g=await p.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth}));assert(g.scroll<=g.width+1,'no horizontal page overflow '+JSON.stringify(g));for(const selector of ['#mgPhrase','#mgTranslation','#mgPhon']){const item=p.locator(selector);if(await item.isVisible())assert(await item.evaluate(n=>n.scrollWidth<=n.clientWidth+1),selector+' wraps');}}
 async function photo(p){const pictures=p.locator('.mg-theme-photo img,.mg-mobile-theme-photo img,.mg-desktop-theme-photo img');assert(await pictures.count()>0,'source theme illustration exists');}
@@ -66,4 +70,81 @@ test('classic recognition passes the exact Hindi/Russian/Portuguese locale',{tim
 
 test('long new themes retain every card in visible stages and persist completed stages',{timeout:120000},()=>checked('new-long-stages',async()=>{
  for(const study of ['hi','ru','pt','ar']){const pair='fr-'+study,f=await fixture({width:1366,pair});try{const p=f.page;await goCourse(f,pair,2);const longTheme=banks[study].levels[1].themes.find(t=>t.phraseIds.length>100);assert(longTheme);let tile=p.locator('#mgThemeGrid .mg-theme[data-theme-id="'+longTheme.id+'"]');for(let page=0;page<30&&!await tile.isVisible();page++){await tap(p,'.mg-desktop-page-next');await settle(p);}await tile.click();await ready(p,pair,2,'sequences');const seqs=await p.evaluate(()=>window.MelungaMockup.visibleSequences());assert(seqs.length>1);const source=longTheme.phraseIds;assert.deepEqual(seqs.flatMap(s=>s.phraseIds),source);assert(seqs.every(s=>s.cards>=30&&s.cards<=40));await tap(p,'#mgSequences .mg-sequence');for(const id of seqs[0].phraseIds){assert.equal((await state(p)).phraseId,id);await tap(p,'#mgContinue');}await ready(p,pair,2,'done');assert.equal((await known(p,pair)).length,seqs[0].cards);await p.reload();await ready(p,pair,2);assert.equal((await known(p,pair)).length,seqs[0].cards);}finally{await f.close();}}
+}));
+
+
+async function verifyNativeLocale(p,pair){
+  const current=await state(p),[native,study]=pair.split('-');
+  const index=Number(current.phraseId.split(':').at(-1)),card=banks[study].cards[index];
+  const expected=nativeInput.concepts[nativeInput.banks[study][index]][native];
+  assert.equal(current.pairId,pair);assert.equal(await p.locator('html').getAttribute('lang'),native);
+  assert.equal(await p.locator('#mgPhrase').textContent(),card.t);
+  assert.equal(await p.locator('#mgTranslation').textContent(),expected);
+  assert.equal(await p.locator('#mgPhon').textContent(),card.py);
+  assert.equal(await p.locator('#mgTranslation').getAttribute('dir'),'auto');
+  await fit(p);return {id:current.phraseId,card,expected,index};
+}
+
+test('all four new application languages open exact native lessons from flagged desktop and mobile menus',{timeout:180000},()=>checked('four-native-home-entry',async()=>{
+  for(const width of [390,1366])for(const native of nativeLocaleCodes){
+    const f=await fixture({width,pair:'fr-en'});try{
+      const p=f.page;await p.goto(ORIGIN+'/index.html');
+      await tap(p,width>=960?'.dh-language':'[data-open-app-language]');
+      await p.locator('#appLanguageMenu').waitFor({state:'visible'});
+      await tap(p,'[data-app-language="'+native+'"]');
+      assert.equal(await p.locator('html').getAttribute('lang'),native);
+      await tap(p,width>=960?'[data-dh-free]':'[data-select-access="free"]');
+      assert.equal(await p.locator('[data-study-language]:visible').count(),11);
+      assert.equal(await p.locator('[data-study-language="'+native+'"]').isHidden(),true);
+      await tap(p,'[data-study-language="en"]');await ready(p,native+'-en',1,'lesson');
+      await verifyNativeLocale(p,native+'-en');await photo(p);
+      assert.deepEqual(await p.evaluate(()=>window.__germanMedia.plays),[]);
+      await capture(p,'native-'+native+'-entry-'+width);
+    }finally{await f.close();}
+  }
+}));
+
+test('four native locales retain listening, voice controls, saved reviews and progress across reloads',{timeout:180000},()=>checked('four-native-lesson-functions',async()=>{
+  for(const native of nativeLocaleCodes){
+    const pair=native+'-es',f=await fixture({width:1366,pair});try{
+      const p=f.page;await goCourse(f,pair,1,true);const first=await verifyNativeLocale(p,pair);
+      await tap(p,'#mgListen');await tap(p,'#mgEar');
+      const media=await p.evaluate(()=>window.__germanMedia.plays);assert.equal(media.length,2);
+      for(const played of media){const u=new URL(played.src,ORIGIN);assert.equal(u.searchParams.get('text'),first.card.t);assert.equal(u.searchParams.get('lang'),'es-ES');}
+      assert.deepEqual(await known(p,pair),[]);
+      await menu(p,'voice');await p.locator('#mgSpeed').selectOption('0.75');await tap(p,'#mgMenuClose');
+      await tap(p,'#mgEar');assert.equal((await p.evaluate(()=>window.__germanMedia.plays)).at(-1).rate,0.75);
+      await tap(p,'#mgReplay');assert((await reviews(p)).some(r=>r.id===first.id));
+      const current=await verifyNativeLocale(p,pair);await tap(p,'#mgContinue');
+      assert((await known(p,pair)).includes(current.id));
+      await p.reload();await ready(p,pair);assert((await known(p,pair)).includes(current.id));
+      await menu(p,'À revoir');
+      const row=p.locator('#mgSavedReviewList [data-review-id="'+first.id+'"]');
+      assert.equal(await row.locator('strong').textContent(),first.card.t);
+      assert.equal(await row.locator('.mg-saved-review-copy > span').textContent(),first.expected);
+      await row.locator('[data-review-action="resume"]').click();await ready(p,pair,1,'lesson');
+      await verifyNativeLocale(p,pair);
+      await p.setViewportSize({width:390,height:844});await fit(p);await capture(p,'native-'+native+'-review-mobile');
+    }finally{await f.close();}
+  }
+}));
+
+test('four native locales preserve unpaid L2 locks and localized account validation and return routes',{timeout:180000},()=>checked('four-native-account-return',async()=>{
+  for(const width of [390,1366])for(const native of nativeLocaleCodes){
+    const pair=native+'-en',f=await fixture({width,pair,paid:false});try{
+      const p=f.page;await goCourse(f,pair,1,true);await verifyNativeLocale(p,pair);
+      await tap(p,'#mgLevelTrigger');await tap(p,'#mgLevelChoices [data-level="2"]');await ready(p,pair,2);
+      await tap(p,'#mgThemeGrid .mg-theme[data-access="paid"]');await p.waitForURL(u=>u.pathname==='/app.html');
+      await p.locator('#pwLoginEmail').waitFor({state:'visible'});
+      const u=new URL(p.url());assert.equal(u.searchParams.get('courseReturn'),pair);assert.equal(u.searchParams.get('courseLevel'),'2');
+      assert.equal(await p.locator('html').getAttribute('lang'),native);
+      assert.equal(await p.locator('#pwTitle').textContent(),nativeCopy[native].account.pwTabExisting);
+      assert.equal(await p.locator('#pwLoginEmail').getAttribute('placeholder'),nativeCopy[native].account.emailLabel);
+      assert.equal(await p.locator('#courseLoginBack').textContent(),nativeCopy[native].loginBack);
+      assert.equal(await p.evaluate(()=>nat),'fr','classic hidden underlay stays on an existing native deck');
+      await tap(p,'#pwLoginBtn');assert.equal(await p.locator('#pwFree').textContent(),nativeCopy[native].account.emailRequired);
+      assert.deepEqual(f.posts,[]);await capture(p,'native-'+native+'-account-'+width);
+      await tap(p,'#courseLoginBack');await ready(p,pair,2);assert.equal((await state(p)).access.paid,false);
+    }finally{await f.close();}
+  }
 }));
